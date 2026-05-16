@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PeakAdmin Solutions — Purchasing & Office Admin</title>
+  <meta name="description" content="Professional purchasing admin, supplier communication and office management for small businesses. Monthly retainer packages from £199/mo." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #07090f;
+      --bg2: #0c0f1a;
+      --bg3: #111520;
+      --gold: #c4973a;
+      --gold-dim: rgba(196,151,58,0.15);
+      --cream: #e8e2d5;
+      --cream-dim: rgba(232,226,213,0.55);
+      --muted: rgba(232,226,213,0.35);
+      --border: rgba(255,255,255,0.07);
+      --border-gold: rgba(196,151,58,0.3);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--cream);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ─── NAV ─────────────────────────────── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 0 6%;
+      height: 72px;
+      display: flex; align-items: center; justify-content: space-between;
+      background: linear-gradient(to bottom, rgba(7,9,15,0.95) 0%, transparent 100%);
+      transition: background 0.3s;
+    }
+    nav.scrolled { background: rgba(7,9,15,0.98); border-bottom: 1px solid var(--border); }
+
+    .logo {
+      text-decoration: none;
+      display: flex; flex-direction: column; line-height: 1;
+    }
+    .logo-top {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px; font-weight: 600;
+      color: var(--cream); letter-spacing: 3px; text-transform: uppercase;
+    }
+    .logo-sub {
+      font-size: 9px; font-weight: 400; letter-spacing: 4px;
+      color: var(--gold); text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex; align-items: center; gap: 40px; list-style: none;
+    }
+    .nav-links a {
+      font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+      color: var(--cream-dim); text-decoration: none; font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--cream); }
+
+    .nav-cta {
+      font-size: 10px !important; letter-spacing: 2.5px !important;
+      color: var(--gold) !important;
+      border: 1px solid var(--border-gold) !important;
+      padding: 9px 22px; border-radius: 2px;
+      transition: background 0.2s, color 0.2s !important;
+    }
+    .nav-cta:hover { background: var(--gold-dim) !important; color: var(--gold) !important; }
+
+    /* ─── HERO ────────────────────────────── */
+    .hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+      align-items: flex-start; justify-content: flex-end;
+      padding: 0 8% 10vh;
+      position: relative; overflow: hidden;
+      background: var(--bg);
+    }
+
+    /* Atmospheric dark background */
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 120% 80% at 80% 20%, rgba(196,151,58,0.04) 0%, transparent 55%),
+        radial-gradient(ellipse 60% 90% at 10% 80%, rgba(30,50,100,0.25) 0%, transparent 60%),
+        radial-gradient(ellipse 80% 60% at 50% 50%, rgba(12,15,26,0.8) 0%, transparent 100%);
+    }
+
+    /* Grid texture overlay */
+    .hero::after {
+      content: '';
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(232,226,213,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(232,226,213,0.02) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+    }
+
+    .hero-content { position: relative; z-index: 1; max-width: 900px; }
+
+    .hero-eyebrow {
+      font-size: 10px; letter-spacing: 4px; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 28px;
+      display: flex; align-items: center; gap: 16px;
+    }
+    .hero-eyebrow::before {
+      content: ''; display: block; width: 40px; height: 1px; background: var(--gold);
+    }
+
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(54px, 8vw, 110px);
+      font-weight: 300; line-height: 0.95;
+      color: var(--cream); margin-bottom: 36px;
+      letter-spacing: -1px;
+    }
+    .hero h1 em { font-style: italic; color: var(--gold); }
+
+    .hero-desc {
+      font-size: 14px; font-weight: 300; line-height: 1.8;
+      color: var(--cream-dim); max-width: 420px;
+      margin-bottom: 52px; letter-spacing: 0.3px;
+    }
+
+    .hero-actions {
+      display: flex; align-items: center; gap: 32px;
+    }
+    .btn-ghost {
+      font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+      color: var(--cream); text-decoration: none; font-weight: 500;
+      border-bottom: 1px solid rgba(232,226,213,0.3);
+      padding-bottom: 4px;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-ghost:hover { color: var(--gold); border-color: var(--gold); }
+
+    .btn-solid {
+      font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+      color: var(--bg); background: var(--gold);
+      text-decoration: none; font-weight: 600;
+      padding: 14px 36px;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .btn-solid:hover { opacity: 0.88; transform: translateY(-1px); }
+
+    .hero-scroll {
+      position: absolute; bottom: 40px; right: 8%;
+      font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
+      color: var(--muted); writing-mode: vertical-rl;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .hero-scroll::after {
+      content: ''; display: block; width: 1px; height: 50px; background: var(--muted);
+    }
+
+    /* ─── MARQUEE ─────────────────────────── */
+    .marquee-wrap {
+      background: var(--gold);
+      overflow: hidden; padding: 14px 0;
+      white-space: nowrap;
+    }
+    .marquee-track {
+      display: inline-flex; gap: 0;
+      animation: marquee 25s linear infinite;
+    }
+    .marquee-item {
+      font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+      color: var(--bg); font-weight: 600;
+      padding: 0 36px;
+    }
+    .marquee-dot {
+      font-size: 14px; color: rgba(7,9,15,0.4);
+    }
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    /* ─── SECTION BASE ────────────────────── */
+    section { padding: 120px 8%; }
+
+    .s-label {
+      font-size: 9px; letter-spacing: 4px; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 20px;
+      display: flex; align-items: center; gap: 14px;
+    }
+    .s-label::before { content: ''; display: block; width: 28px; height: 1px; background: var(--gold); }
+
+    .s-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(36px, 5vw, 62px);
+      font-weight: 300; line-height: 1.05;
+      color: var(--cream); margin-bottom: 20px;
+    }
+    .s-title em { font-style: italic; color: var(--gold); }
+
+    .s-body {
+      font-size: 14px; font-weight: 300; line-height: 1.85;
+      color: var(--cream-dim); max-width: 480px;
+    }
+
+    /* ─── SERVICES ────────────────────────── */
+    .services { background: var(--bg2); }
+
+    .services-layout {
+      display: grid; grid-template-columns: 1fr 2fr; gap: 80px;
+      align-items: start; margin-top: 72px;
+    }
+
+    .service-list { list-style: none; }
+    .service-item {
+      border-top: 1px solid var(--border);
+      padding: 28px 0;
+      cursor: pointer;
+      transition: border-color 0.3s;
+    }
+    .service-item:hover { border-top-color: var(--gold); }
+    .service-item.active { border-top-color: var(--gold); }
+
+    .service-num {
+      font-size: 10px; letter-spacing: 2px; color: var(--gold);
+      margin-bottom: 8px; font-weight: 400;
+    }
+    .service-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px; font-weight: 400;
+      color: var(--cream); margin-bottom: 6px;
+    }
+    .service-desc {
+      font-size: 13px; color: var(--muted); line-height: 1.7;
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.4s ease, opacity 0.3s;
+      opacity: 0;
+    }
+    .service-item.active .service-desc,
+    .service-item:hover .service-desc {
+      max-height: 120px; opacity: 1;
+    }
+
+    .service-feature-panel {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      padding: 52px;
+      position: sticky; top: 100px;
+    }
+    .feature-label {
+      font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 28px;
+    }
+    .feature-items { list-style: none; }
+    .feature-items li {
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 13px; color: var(--cream-dim);
+      display: flex; align-items: center; gap: 14px;
+      font-weight: 300; letter-spacing: 0.3px;
+    }
+    .feature-items li:last-child { border-bottom: none; }
+    .feature-items li::before {
+      content: '—'; color: var(--gold); font-size: 11px; flex-shrink: 0;
+    }
+
+    /* ─── PACKAGES ────────────────────────── */
+    .packages-section { background: var(--bg); }
+
+    .packages-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1px; margin-top: 72px;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+
+    .pkg {
+      background: var(--bg2);
+      padding: 52px 40px;
+      position: relative;
+      transition: background 0.3s;
+    }
+    .pkg:hover { background: var(--bg3); }
+    .pkg.featured { background: var(--bg3); }
+
+    .pkg-badge {
+      font-size: 8px; letter-spacing: 3px; text-transform: uppercase;
+      color: var(--bg); background: var(--gold);
+      padding: 5px 14px; margin-bottom: 32px; display: inline-block;
+    }
+
+    .pkg-tier {
+      font-size: 9px; letter-spacing: 4px; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 16px;
+    }
+    .pkg-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 60px; font-weight: 300;
+      color: var(--cream); line-height: 1;
+      margin-bottom: 8px;
+    }
+    .pkg-price sup { font-size: 22px; vertical-align: top; margin-top: 10px; display: inline-block; }
+    .pkg-period {
+      font-size: 12px; color: var(--muted); letter-spacing: 1px;
+      margin-bottom: 32px;
+    }
+    .pkg-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px; font-weight: 400;
+      color: var(--cream); margin-bottom: 12px;
+    }
+    .pkg-tagline {
+      font-size: 13px; color: var(--muted); line-height: 1.6;
+      margin-bottom: 36px; font-weight: 300;
+    }
+    .pkg-divider { height: 1px; background: var(--border); margin-bottom: 32px; }
+
+    .pkg-features { list-style: none; }
+    .pkg-features li {
+      font-size: 12px; color: var(--cream-dim); font-weight: 300;
+      padding: 10px 0; border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; gap: 12px;
+      letter-spacing: 0.3px;
+    }
+    .pkg-features li:last-child { border-bottom: none; }
+    .pkg-features li::before { content: '✦'; color: var(--gold); font-size: 8px; flex-shrink: 0; }
+
+    .pkg-cta {
+      display: block; text-align: center; margin-top: 40px;
+      font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+      padding: 14px; border: 1px solid var(--border-gold);
+      color: var(--gold); text-decoration: none; font-weight: 500;
+      transition: all 0.2s;
+    }
+    .pkg-cta:hover, .pkg.featured .pkg-cta {
+      background: var(--gold); color: var(--bg); border-color: var(--gold);
+    }
+    .pkg.featured .pkg-cta:hover { opacity: 0.85; }
+
+    /* ─── PROCESS ─────────────────────────── */
+    .process { background: var(--bg2); }
+
+    .process-steps {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 0; margin-top: 72px;
+      border: 1px solid var(--border);
+    }
+    .process-step {
+      padding: 48px 36px;
+      border-right: 1px solid var(--border);
+      position: relative;
+    }
+    .process-step:last-child { border-right: none; }
+
+    .step-n {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 72px; font-weight: 300; color: rgba(196,151,58,0.12);
+      line-height: 1; margin-bottom: 20px;
+    }
+    .step-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px; font-weight: 400;
+      color: var(--cream); margin-bottom: 12px;
+    }
+    .step-body {
+      font-size: 13px; color: var(--muted); line-height: 1.75; font-weight: 300;
+    }
+
+    /* ─── ABOUT ───────────────────────────── */
+    .about { background: var(--bg); }
+    .about-layout {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center;
+    }
+    .about-visual {
+      position: relative;
+    }
+    .about-card {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      padding: 60px;
+      text-align: center;
+      position: relative;
+    }
+    .about-card::before {
+      content: '';
+      position: absolute; inset: 8px;
+      border: 1px solid var(--border-gold);
+      pointer-events: none;
+    }
+    .about-monogram {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 80px; font-weight: 300;
+      color: var(--gold); line-height: 1;
+      margin-bottom: 16px;
+    }
+    .about-role {
+      font-size: 9px; letter-spacing: 4px; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 36px;
+    }
+
+    .about-tags {
+      display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;
+    }
+    .tag {
+      font-size: 9px; letter-spacing: 2px; text-transform: uppercase;
+      border: 1px solid var(--border-gold);
+      color: var(--gold); padding: 6px 14px;
+    }
+
+    .about-stats {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 1px; background: var(--border);
+      border: 1px solid var(--border);
+      margin-top: 24px;
+    }
+    .about-stat {
+      background: var(--bg3);
+      padding: 28px 24px;
+    }
+    .about-stat-n {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 36px; font-weight: 300; color: var(--gold);
+      line-height: 1; margin-bottom: 4px;
+    }
+    .about-stat-l { font-size: 10px; letter-spacing: 1.5px; color: var(--muted); text-transform: uppercase; }
+
+    .about-text { }
+    .about-text p {
+      font-size: 14px; font-weight: 300; line-height: 1.85;
+      color: var(--cream-dim); margin-bottom: 24px;
+    }
+    .about-list { list-style: none; margin: 32px 0; }
+    .about-list li {
+      font-size: 13px; font-weight: 300; color: var(--cream-dim);
+      padding: 12px 0; border-bottom: 1px solid var(--border);
+      display: flex; gap: 12px; align-items: flex-start;
+      letter-spacing: 0.2px;
+    }
+    .about-list li::before { content: '—'; color: var(--gold); flex-shrink: 0; margin-top: 1px; }
+
+    /* ─── TEACHING ─────────────────────────── */
+    .teaching { background: var(--bg2); }
+    .teach-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1px; background: var(--border);
+      border: 1px solid var(--border);
+      margin-top: 72px;
+    }
+    .teach-card {
+      background: var(--bg2);
+      padding: 44px 36px;
+      transition: background 0.3s;
+    }
+    .teach-card:hover { background: var(--bg3); }
+    .teach-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 48px; font-weight: 300;
+      color: rgba(196,151,58,0.2); line-height: 1; margin-bottom: 20px;
+    }
+    .teach-title {
+      font-size: 13px; letter-spacing: 1px; text-transform: uppercase;
+      color: var(--cream); font-weight: 500; margin-bottom: 14px;
+    }
+    .teach-body { font-size: 13px; color: var(--muted); line-height: 1.75; font-weight: 300; }
+
+    /* ─── CONTACT ─────────────────────────── */
+    .contact { background: var(--bg); }
+    .contact-layout {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: start;
+    }
+    .contact-info h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(40px, 5vw, 64px); font-weight: 300;
+      color: var(--cream); line-height: 1.05; margin-bottom: 28px;
+    }
+    .contact-info h2 em { font-style: italic; color: var(--gold); }
+    .contact-info p {
+      font-size: 14px; font-weight: 300; color: var(--cream-dim);
+      line-height: 1.8; margin-bottom: 48px;
+    }
+
+    .contact-detail { margin-bottom: 20px; }
+    .contact-detail-label {
+      font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 4px;
+    }
+    .contact-detail-val { font-size: 14px; color: var(--cream-dim); font-weight: 300; }
+    .contact-detail-val a { color: var(--cream-dim); text-decoration: none; }
+    .contact-detail-val a:hover { color: var(--gold); }
+
+    .contact-form { display: flex; flex-direction: column; gap: 0; }
+    .form-field {
+      border-bottom: 1px solid var(--border);
+      padding: 0; margin-bottom: 0;
+      position: relative;
+    }
+    .form-field label {
+      display: block; font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
+      color: var(--gold); padding-top: 28px; padding-bottom: 8px;
+    }
+    .form-field input, .form-field textarea, .form-field select {
+      background: none; border: none; outline: none;
+      width: 100%; font-family: 'Inter', sans-serif;
+      font-size: 14px; font-weight: 300; color: var(--cream);
+      padding-bottom: 20px;
+      caret-color: var(--gold);
+    }
+    .form-field select option { background: var(--bg2); color: var(--cream); }
+    .form-field textarea { resize: none; min-height: 100px; }
+    .form-field:focus-within { border-bottom-color: var(--gold); }
+    .form-field input::placeholder,
+    .form-field textarea::placeholder { color: var(--muted); }
+
+    .form-submit {
+      margin-top: 40px;
+    }
+    .btn-submit {
+      background: none; border: 1px solid var(--border-gold);
+      color: var(--gold); font-family: 'Inter', sans-serif;
+      font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+      font-weight: 500; padding: 16px 48px; cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-submit:hover { background: var(--gold); color: var(--bg); border-color: var(--gold); }
+
+    /* ─── FOOTER ──────────────────────────── */
+    footer {
+      background: var(--bg2);
+      padding: 72px 8% 36px;
+      border-top: 1px solid var(--border);
+    }
+    .footer-top {
+      display: flex; justify-content: space-between; align-items: flex-start;
+      margin-bottom: 64px;
+      flex-wrap: wrap; gap: 40px;
+    }
+    .footer-tagline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 36px; font-weight: 300;
+      color: var(--cream); max-width: 400px; line-height: 1.1;
+    }
+    .footer-tagline em { font-style: italic; color: var(--gold); }
+
+    .footer-links { display: flex; gap: 64px; flex-wrap: wrap; }
+    .footer-col h4 {
+      font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 20px;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 12px; }
+    .footer-col ul a {
+      font-size: 13px; color: var(--muted); text-decoration: none; font-weight: 300;
+      transition: color 0.2s;
+    }
+    .footer-col ul a:hover { color: var(--cream); }
+
+    .footer-bottom {
+      border-top: 1px solid var(--border);
+      padding-top: 28px;
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 16px;
+    }
+    .footer-copy { font-size: 11px; color: var(--muted); letter-spacing: 0.5px; }
+    .footer-socials { display: flex; gap: 24px; }
+    .footer-socials a {
+      font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+      color: var(--muted); text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-socials a:hover { color: var(--gold); }
+
+    /* ─── MOBILE ──────────────────────────── */
+    @media (max-width: 900px) {
+      section { padding: 80px 6%; }
+      .services-layout { grid-template-columns: 1fr; gap: 48px; }
+      .packages-grid { grid-template-columns: 1fr; }
+      .process-steps { grid-template-columns: 1fr 1fr; }
+      .about-layout { grid-template-columns: 1fr; gap: 48px; }
+      .contact-layout { grid-template-columns: 1fr; gap: 60px; }
+      .teach-grid { grid-template-columns: 1fr; }
+      nav .nav-links { display: none; }
+      .hero h1 { font-size: clamp(42px, 10vw, 72px); }
+    }
+
+    @media (max-width: 560px) {
+      .process-steps { grid-template-columns: 1fr; }
+      .about-stats { grid-template-columns: 1fr 1fr; }
+      .footer-top { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="mainNav">
+    <a href="#" class="logo">
+      <span class="logo-top">PeakAdmin</span>
+      <span class="logo-sub">Solutions</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#packages">Packages</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact" class="nav-cta">Enquire</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-eyebrow">Professional Admin. Remote. Reliable.</div>
+      <h1>Admin Done<br/><em>Properly.</em></h1>
+      <p class="hero-desc">Purchasing, supplier communication, order processing and office management — handled for your business every month, so you can focus on what matters.</p>
+      <div class="hero-actions">
+        <a href="#packages" class="btn-solid">View Packages</a>
+        <a href="#contact" class="btn-ghost">Book a free call</a>
+      </div>
+    </div>
+    <div class="hero-scroll">Scroll</div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-wrap">
+    <div class="marquee-track">
+      <span class="marquee-item">Purchase Order Management</span><span class="marquee-dot">◆</span>
+      <span class="marquee-item">Supplier Communication</span><span class="marquee-dot">◆</span>
+      <span class="marquee-item">Order Processing</span><span class="marquee-dot">◆</span>
+      <span class="marquee-item">Excel Reporting</span><span class="marquee-dot">◆</span>
+      <span class="marquee-item">Office Administration</span><span class="marquee-dot">◆</span>
+      <span class="marquee-item">Invoice Management</span><span class="marquee-dot">◆</span>
+      <span class="marquee-item">Monthly Retainer</span><span class="marquee-dot">◆</span>
+      <span class="marquee-item">Remote Ready</span><span class="marquee-dot">◆</span>
+      <!-- duplicate for seamless loop -->
+      <span class="marquee-item">Purchase Order Management</span><span class="marquee-dot">◆</span>
+      <span class="marquee-item">Supplier Communication</span><span class="marquee-dot">◆</span>
+      <span class="marquee-item">Order Processing</span><span class="marquee-dot">◆</span>
+      <span class="marquee-item">Excel Reporting</span><span class="marquee-dot">◆</span>
+      <span class="marquee-item">Office Administration</span><span class="marquee-dot">◆</span>
+      <span class="marquee-item">Invoice Management</span><span class="marquee-dot">◆</span>
+      <span class="marquee-item">Monthly Retainer</span><span class="marquee-dot">◆</span>
+      <span class="marquee-item">Remote Ready</span><span class="marquee-dot">◆</span>
+    </div>
+  </div>
+
+  <!-- SERVICES -->
+  <section class="services" id="services">
+    <div class="s-label">What I Do</div>
+    <h2 class="s-title">Every detail of your<br/>admin, <em>handled.</em></h2>
+    <div class="services-layout">
+      <ul class="service-list">
+        <li class="service-item active">
+          <div class="service-num">01</div>
+          <div class="service-name">Purchasing & Procurement</div>
+          <div class="service-desc">Full purchase order lifecycle — raising, tracking, chasing and closing. Nothing falls through the cracks.</div>
+        </li>
+        <li class="service-item">
+          <div class="service-num">02</div>
+          <div class="service-name">Supplier Management</div>
+          <div class="service-desc">Communication, relationship management, quote comparisons and negotiation support. Your suppliers, professionally managed.</div>
+        </li>
+        <li class="service-item">
+          <div class="service-num">03</div>
+          <div class="service-name">Excel & Reporting</div>
+          <div class="service-desc">Clean spreadsheets, spend trackers and monthly reports that actually make sense. No more chaos.</div>
+        </li>
+        <li class="service-item">
+          <div class="service-num">04</div>
+          <div class="service-name">Office Administration</div>
+          <div class="service-desc">Email management, invoice processing, filing and general admin. The day-to-day handled, so you're free.</div>
+        </li>
+      </ul>
+      <div class="service-feature-panel">
+        <div class="feature-label">All packages include</div>
+        <ul class="feature-items">
+          <li>Purchase order creation and tracking</li>
+          <li>Supplier email communication</li>
+          <li>Quote comparison and analysis</li>
+          <li>Excel spend tracking and reports</li>
+          <li>Invoice checking and processing</li>
+          <li>Weekly progress updates</li>
+          <li>End-of-month summary report</li>
+          <li>Process documentation and handover guides</li>
+          <li>Onboarding within 48 hours</li>
+          <li>No long-term contracts</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- PACKAGES -->
+  <section class="packages-section" id="packages">
+    <div class="s-label">Pricing</div>
+    <h2 class="s-title">Simple, transparent<br/><em>monthly packages.</em></h2>
+    <p class="s-body">No setup fees. No hidden costs. Cancel anytime with 30 days notice. All plans include full onboarding.</p>
+
+    <div class="packages-grid">
+
+      <div class="pkg">
+        <div class="pkg-tier">Starter</div>
+        <div class="pkg-price"><sup>£</sup>199</div>
+        <div class="pkg-period">per month</div>
+        <div class="pkg-name">The Foundation</div>
+        <div class="pkg-tagline">For sole traders and small businesses needing part-time admin cover.</div>
+        <div class="pkg-divider"></div>
+        <ul class="pkg-features">
+          <li>Up to 15 hours per month</li>
+          <li>Purchase order processing</li>
+          <li>Supplier email management</li>
+          <li>Basic Excel tracking</li>
+          <li>Weekly status update</li>
+          <li>Email support — 48h response</li>
+        </ul>
+        <a href="#contact" class="pkg-cta">Enquire Now</a>
+      </div>
+
+      <div class="pkg featured">
+        <div class="pkg-badge">Most Popular</div>
+        <div class="pkg-tier">Professional</div>
+        <div class="pkg-price"><sup>£</sup>349</div>
+        <div class="pkg-period">per month</div>
+        <div class="pkg-name">The Full Service</div>
+        <div class="pkg-tagline">For growing businesses that need reliable admin throughout the month.</div>
+        <div class="pkg-divider"></div>
+        <ul class="pkg-features">
+          <li>Up to 30 hours per month</li>
+          <li>Full purchasing cycle management</li>
+          <li>Supplier negotiation and comms</li>
+          <li>Advanced Excel dashboards</li>
+          <li>Invoice and cost tracking</li>
+          <li>Quote comparison analysis</li>
+          <li>Priority response — 24 hours</li>
+          <li>Monthly performance review call</li>
+        </ul>
+        <a href="#contact" class="pkg-cta">Enquire Now</a>
+      </div>
+
+      <div class="pkg">
+        <div class="pkg-tier">Enterprise</div>
+        <div class="pkg-price"><sup>£</sup>599</div>
+        <div class="pkg-period">per month</div>
+        <div class="pkg-name">The Partner</div>
+        <div class="pkg-tagline">For businesses that need a dedicated admin partner across all operations.</div>
+        <div class="pkg-divider"></div>
+        <ul class="pkg-features">
+          <li>Unlimited hours per month</li>
+          <li>Full office administration</li>
+          <li>Dedicated account management</li>
+          <li>Full supplier relationship management</li>
+          <li>Process setup and documentation</li>
+          <li>Custom KPI reporting</li>
+          <li>Same-day response</li>
+          <li>Bi-weekly strategy calls</li>
+        </ul>
+        <a href="#contact" class="pkg-cta">Enquire Now</a>
+      </div>
+
+    </div>
+
+    <p style="font-size:12px;color:var(--muted);margin-top:28px;letter-spacing:0.5px;">
+      One-off projects available at <strong style="color:var(--gold)">£120 per day</strong> &nbsp;—&nbsp;
+      <a href="#contact" style="color:var(--gold);text-decoration:none;">get in touch to discuss →</a>
+    </p>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="process" id="process">
+    <div class="s-label">How It Works</div>
+    <h2 class="s-title">Up and running<br/>in <em>48 hours.</em></h2>
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="step-n">01</div>
+        <div class="step-title">Free Discovery Call</div>
+        <div class="step-body">20 minutes to understand your business, your admin needs and your biggest pain points. No obligation.</div>
+      </div>
+      <div class="process-step">
+        <div class="step-n">02</div>
+        <div class="step-title">Tailored Onboarding</div>
+        <div class="step-body">I learn your suppliers, processes and systems. Everything set up within 48 hours of sign-off.</div>
+      </div>
+      <div class="process-step">
+        <div class="step-n">03</div>
+        <div class="step-title">Admin, Handled</div>
+        <div class="step-body">From day one I'm managing your purchasing and admin. Regular updates, always reachable.</div>
+      </div>
+      <div class="process-step">
+        <div class="step-n">04</div>
+        <div class="step-title">Monthly Review</div>
+        <div class="step-body">A full summary each month — what was done, savings found, and priorities for the month ahead.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="about-layout">
+      <div class="about-visual">
+        <div class="about-card">
+          <div class="about-monogram">PA</div>
+          <div class="about-role">Purchasing &amp; Office Admin Specialist</div>
+          <div class="about-tags">
+            <span class="tag">Purchasing</span>
+            <span class="tag">Procurement</span>
+            <span class="tag">Supplier Comms</span>
+            <span class="tag">Order Processing</span>
+            <span class="tag">Excel</span>
+            <span class="tag">Office Admin</span>
+            <span class="tag">Remote</span>
+          </div>
+        </div>
+        <div class="about-stats">
+          <div class="about-stat">
+            <div class="about-stat-n">5+</div>
+            <div class="about-stat-l">Years Experience</div>
+          </div>
+          <div class="about-stat">
+            <div class="about-stat-n">48h</div>
+            <div class="about-stat-l">Onboarding</div>
+          </div>
+          <div class="about-stat">
+            <div class="about-stat-n">UK</div>
+            <div class="about-stat-l">Based, Remote</div>
+          </div>
+          <div class="about-stat">
+            <div class="about-stat-n">£0</div>
+            <div class="about-stat-l">Setup Fee</div>
+          </div>
+        </div>
+      </div>
+      <div class="about-text">
+        <div class="s-label">About</div>
+        <h2 class="s-title">Experienced admin that works like part<br/>of your <em>team.</em></h2>
+        <p>I'm a seasoned purchasing and office administration professional with hands-on experience managing the full procurement cycle — from raising purchase orders to managing supplier relationships and keeping records clean in Excel.</p>
+        <p>I work with small businesses and growing teams who need professional admin support without the cost of a full-time hire. Based in the UK, fully remote-ready.</p>
+        <ul class="about-list">
+          <li>Purchase order creation, tracking and management</li>
+          <li>Supplier communication and relationship management</li>
+          <li>Quote comparison and cost-saving analysis</li>
+          <li>Excel spreadsheets, reports and data organisation</li>
+          <li>Invoice processing and accounts admin support</li>
+          <li>General office administration and email management</li>
+        </ul>
+        <a href="#contact" class="btn-solid" style="display:inline-block;margin-top:36px;">Start a Conversation</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEACHING -->
+  <section class="teaching">
+    <div class="s-label">Knowledge Transfer</div>
+    <h2 class="s-title">I don't just do it —<br/>I <em>teach you how.</em></h2>
+    <p class="s-body">Every system I build comes with documentation. Your team should always be able to run it without me.</p>
+    <div class="teach-grid">
+      <div class="teach-card">
+        <div class="teach-num">01</div>
+        <div class="teach-title">Process Documentation</div>
+        <div class="teach-body">Every process built and documented step-by-step. Your team can follow it with or without me present.</div>
+      </div>
+      <div class="teach-card">
+        <div class="teach-num">02</div>
+        <div class="teach-title">Excel Walkthroughs</div>
+        <div class="teach-body">Every spreadsheet I create gets a plain-English walkthrough so you can read, update and use it confidently.</div>
+      </div>
+      <div class="teach-card">
+        <div class="teach-num">03</div>
+        <div class="teach-title">Supplier Handover Guides</div>
+        <div class="teach-body">Contact sheets, terms summaries and communication templates — nothing locked in my head.</div>
+      </div>
+      <div class="teach-card">
+        <div class="teach-num">04</div>
+        <div class="teach-title">Video Walkthroughs</div>
+        <div class="teach-body">For complex processes, short Loom recordings so you or your team can refer back at any time.</div>
+      </div>
+      <div class="teach-card">
+        <div class="teach-num">05</div>
+        <div class="teach-title">Monthly Reports</div>
+        <div class="teach-body">Plain-English monthly summaries covering everything done, any savings found, and what's next.</div>
+      </div>
+      <div class="teach-card">
+        <div class="teach-num">06</div>
+        <div class="teach-title">Best Practice Coaching</div>
+        <div class="teach-body">Tips and advice on purchasing and admin as we work — building your team's capability over time.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="contact-layout">
+      <div class="contact-info">
+        <div class="s-label">Get in Touch</div>
+        <h2>Let's talk<br/>about your<br/><em>business.</em></h2>
+        <p>Tell me about your admin setup and I'll come back within 24 hours. The first call is always free — no pitch, no pressure.</p>
+        <div class="contact-detail">
+          <div class="contact-detail-label">Email</div>
+          <div class="contact-detail-val"><a href="mailto:exe6exe7.tony625@gmail.com">exe6exe7.tony625@gmail.com</a></div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-label">Location</div>
+          <div class="contact-detail-val">UK-based — working fully remote</div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-label">Response time</div>
+          <div class="contact-detail-val">Within 24 hours</div>
+        </div>
+      </div>
+      <form class="contact-form" action="mailto:exe6exe7.tony625@gmail.com" method="GET" enctype="text/plain">
+        <div class="form-field">
+          <label>Your Name</label>
+          <input type="text" name="name" placeholder="John Smith" required />
+        </div>
+        <div class="form-field">
+          <label>Business Name</label>
+          <input type="text" name="business" placeholder="Acme Ltd" />
+        </div>
+        <div class="form-field">
+          <label>Email Address</label>
+          <input type="email" name="email" placeholder="you@business.com" required />
+        </div>
+        <div class="form-field">
+          <label>Package Interest</label>
+          <select name="package">
+            <option value="">Not sure yet</option>
+            <option value="starter">Starter — £199/mo</option>
+            <option value="professional">Professional — £349/mo</option>
+            <option value="enterprise">Enterprise — £599/mo</option>
+            <option value="dayrate">Day Rate — £120/day</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label>Your Message</label>
+          <textarea name="message" placeholder="Tell me about your admin needs..."></textarea>
+        </div>
+        <div class="form-submit">
+          <button type="submit" class="btn-submit">Send Enquiry</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-top">
+      <div class="footer-tagline">
+        Professional admin.<br/><em>Delivered monthly.</em>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#services">Purchasing & Procurement</a></li>
+            <li><a href="#services">Supplier Management</a></li>
+            <li><a href="#services">Excel & Reporting</a></li>
+            <li><a href="#services">Office Administration</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Packages</h4>
+          <ul>
+            <li><a href="#packages">Starter — £199/mo</a></li>
+            <li><a href="#packages">Professional — £349/mo</a></li>
+            <li><a href="#packages">Enterprise — £599/mo</a></li>
+            <li><a href="#packages">Day Rate — £120/day</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <ul>
+            <li><a href="https://linkedin.com" target="_blank">LinkedIn</a></li>
+            <li><a href="https://facebook.com" target="_blank">Facebook</a></li>
+            <li><a href="https://x.com" target="_blank">X (Twitter)</a></li>
+            <li><a href="mailto:exe6exe7.tony625@gmail.com">Email</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 PeakAdmin Solutions — All rights reserved</span>
+      <div class="footer-socials">
+        <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+        <a href="https://facebook.com" target="_blank">Facebook</a>
+        <a href="https://x.com" target="_blank">X</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Nav scroll effect
+    const nav = document.getElementById('mainNav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    // Service item toggle
+    document.querySelectorAll('.service-item').forEach(item => {
+      item.addEventListener('mouseenter', () => {
+        document.querySelectorAll('.service-item').forEach(i => i.classList.remove('active'));
+        item.classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>
