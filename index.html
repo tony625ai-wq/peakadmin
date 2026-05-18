@@ -7,29 +7,33 @@
   <meta name="description" content="Professional purchasing admin, supplier communication and office management for small businesses. Monthly retainer packages from £199/mo." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg: #07090f;
-      --bg2: #0c0f1a;
-      --bg3: #111520;
-      --gold: #c4973a;
-      --gold-dim: rgba(196,151,58,0.15);
-      --cream: #e8e2d5;
-      --cream-dim: rgba(232,226,213,0.55);
-      --muted: rgba(232,226,213,0.35);
-      --border: rgba(255,255,255,0.07);
-      --border-gold: rgba(196,151,58,0.3);
+      --bg: #ffffff;
+      --bg2: #f7f8fc;
+      --bg3: #eef0f7;
+      --navy: #0f1f3d;
+      --navy2: #1e3a5f;
+      --accent: #2563eb;
+      --accent-light: #eff6ff;
+      --accent-mid: rgba(37,99,235,0.12);
+      --text: #1a2744;
+      --text2: #4a5568;
+      --muted: #94a3b8;
+      --border: #e2e8f0;
+      --border-accent: rgba(37,99,235,0.25);
+      --gold: #d97706;
     }
 
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'Inter', sans-serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       background: var(--bg);
-      color: var(--cream);
+      color: var(--text);
       line-height: 1.6;
       overflow-x: hidden;
     }
@@ -40,149 +44,158 @@
       padding: 0 6%;
       height: 72px;
       display: flex; align-items: center; justify-content: space-between;
-      background: linear-gradient(to bottom, rgba(7,9,15,0.95) 0%, transparent 100%);
-      transition: background 0.3s;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s, box-shadow 0.3s;
     }
-    nav.scrolled { background: rgba(7,9,15,0.98); border-bottom: 1px solid var(--border); }
+    nav.scrolled { border-bottom-color: var(--border); box-shadow: 0 2px 20px rgba(0,0,0,0.06); }
 
     .logo {
       text-decoration: none;
       display: flex; flex-direction: column; line-height: 1;
     }
     .logo-top {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 22px; font-weight: 600;
-      color: var(--cream); letter-spacing: 3px; text-transform: uppercase;
+      font-family: 'Playfair Display', serif;
+      font-size: 20px; font-weight: 600;
+      color: var(--navy); letter-spacing: 1px;
     }
     .logo-sub {
-      font-size: 9px; font-weight: 400; letter-spacing: 4px;
-      color: var(--gold); text-transform: uppercase;
+      font-size: 9px; font-weight: 500; letter-spacing: 3px;
+      color: var(--accent); text-transform: uppercase;
     }
 
     .nav-links {
       display: flex; align-items: center; gap: 40px; list-style: none;
     }
     .nav-links a {
-      font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
-      color: var(--cream-dim); text-decoration: none; font-weight: 500;
+      font-size: 13px; letter-spacing: 0.3px;
+      color: var(--text2); text-decoration: none; font-weight: 500;
       transition: color 0.2s;
     }
-    .nav-links a:hover { color: var(--cream); }
+    .nav-links a:hover { color: var(--navy); }
 
     .nav-cta {
-      font-size: 10px !important; letter-spacing: 2.5px !important;
-      color: var(--gold) !important;
-      border: 1px solid var(--border-gold) !important;
-      padding: 9px 22px; border-radius: 2px;
-      transition: background 0.2s, color 0.2s !important;
+      font-size: 13px !important; letter-spacing: 0.3px !important;
+      color: #fff !important;
+      background: var(--accent) !important;
+      padding: 9px 22px; border-radius: 6px !important;
+      transition: background 0.2s, transform 0.2s !important;
+      border: none !important;
     }
-    .nav-cta:hover { background: var(--gold-dim) !important; color: var(--gold) !important; }
+    .nav-cta:hover { background: var(--navy) !important; color: #fff !important; transform: translateY(-1px); }
 
     /* ─── HERO ────────────────────────────── */
     .hero {
       min-height: 100vh;
       display: flex; flex-direction: column;
-      align-items: flex-start; justify-content: flex-end;
-      padding: 0 8% 10vh;
+      align-items: flex-start; justify-content: center;
+      padding: 120px 8% 80px;
       position: relative; overflow: hidden;
       background: var(--bg);
     }
 
-    /* Atmospheric dark background */
     .hero::before {
       content: '';
-      position: absolute; inset: 0;
-      background:
-        radial-gradient(ellipse 120% 80% at 80% 20%, rgba(196,151,58,0.04) 0%, transparent 55%),
-        radial-gradient(ellipse 60% 90% at 10% 80%, rgba(30,50,100,0.25) 0%, transparent 60%),
-        radial-gradient(ellipse 80% 60% at 50% 50%, rgba(12,15,26,0.8) 0%, transparent 100%);
+      position: absolute; top: 0; right: 0;
+      width: 55%; height: 100%;
+      background: linear-gradient(135deg, #f0f5ff 0%, #e8f0fe 50%, #f7f8fc 100%);
+      clip-path: polygon(12% 0, 100% 0, 100% 100%, 0% 100%);
     }
 
-    /* Grid texture overlay */
     .hero::after {
       content: '';
-      position: absolute; inset: 0;
+      position: absolute; top: 0; right: 0;
+      width: 55%; height: 100%;
       background-image:
-        linear-gradient(rgba(232,226,213,0.02) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(232,226,213,0.02) 1px, transparent 1px);
-      background-size: 60px 60px;
-      pointer-events: none;
+        radial-gradient(circle at 70% 30%, rgba(37,99,235,0.08) 0%, transparent 50%),
+        radial-gradient(circle at 30% 70%, rgba(15,31,61,0.04) 0%, transparent 50%);
+      clip-path: polygon(12% 0, 100% 0, 100% 100%, 0% 100%);
     }
 
-    .hero-content { position: relative; z-index: 1; max-width: 900px; }
+    .hero-content { position: relative; z-index: 1; max-width: 680px; }
 
     .hero-eyebrow {
-      font-size: 10px; letter-spacing: 4px; text-transform: uppercase;
-      color: var(--gold); margin-bottom: 28px;
-      display: flex; align-items: center; gap: 16px;
+      font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 24px; font-weight: 600;
+      display: flex; align-items: center; gap: 12px;
     }
     .hero-eyebrow::before {
-      content: ''; display: block; width: 40px; height: 1px; background: var(--gold);
+      content: ''; display: block; width: 32px; height: 2px; background: var(--accent); border-radius: 2px;
     }
 
     .hero h1 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(54px, 8vw, 110px);
-      font-weight: 300; line-height: 0.95;
-      color: var(--cream); margin-bottom: 36px;
-      letter-spacing: -1px;
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(48px, 6vw, 82px);
+      font-weight: 600; line-height: 1.08;
+      color: var(--navy); margin-bottom: 28px;
+      letter-spacing: -0.5px;
     }
-    .hero h1 em { font-style: italic; color: var(--gold); }
+    .hero h1 em { font-style: italic; color: var(--accent); }
 
     .hero-desc {
-      font-size: 14px; font-weight: 300; line-height: 1.8;
-      color: var(--cream-dim); max-width: 420px;
-      margin-bottom: 52px; letter-spacing: 0.3px;
+      font-size: 17px; font-weight: 400; line-height: 1.75;
+      color: var(--text2); max-width: 480px;
+      margin-bottom: 48px;
     }
 
     .hero-actions {
-      display: flex; align-items: center; gap: 32px;
+      display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
     }
     .btn-ghost {
-      font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
-      color: var(--cream); text-decoration: none; font-weight: 500;
-      border-bottom: 1px solid rgba(232,226,213,0.3);
-      padding-bottom: 4px;
-      transition: border-color 0.2s, color 0.2s;
+      font-size: 14px; letter-spacing: 0.3px;
+      color: var(--navy); text-decoration: none; font-weight: 600;
+      border: 2px solid var(--border);
+      padding: 13px 28px; border-radius: 6px;
+      transition: border-color 0.2s, color 0.2s, background 0.2s;
     }
-    .btn-ghost:hover { color: var(--gold); border-color: var(--gold); }
+    .btn-ghost:hover { border-color: var(--navy); background: var(--navy); color: #fff; }
 
     .btn-solid {
-      font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
-      color: var(--bg); background: var(--gold);
+      font-size: 14px; letter-spacing: 0.3px;
+      color: #fff; background: var(--accent);
       text-decoration: none; font-weight: 600;
-      padding: 14px 36px;
-      transition: opacity 0.2s, transform 0.2s;
+      padding: 14px 32px; border-radius: 6px;
+      transition: background 0.2s, transform 0.2s;
+      box-shadow: 0 4px 14px rgba(37,99,235,0.3);
     }
-    .btn-solid:hover { opacity: 0.88; transform: translateY(-1px); }
+    .btn-solid:hover { background: var(--navy); transform: translateY(-1px); }
+
+    .hero-trust {
+      margin-top: 56px; display: flex; align-items: center; gap: 32px; flex-wrap: wrap;
+    }
+    .trust-item {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 13px; color: var(--text2); font-weight: 500;
+    }
+    .trust-icon {
+      width: 20px; height: 20px; background: var(--accent-light);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: 11px; color: var(--accent);
+    }
 
     .hero-scroll {
-      position: absolute; bottom: 40px; right: 8%;
-      font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
-      color: var(--muted); writing-mode: vertical-rl;
-      display: flex; align-items: center; gap: 12px;
-    }
-    .hero-scroll::after {
-      content: ''; display: block; width: 1px; height: 50px; background: var(--muted);
+      display: none;
     }
 
     /* ─── MARQUEE ─────────────────────────── */
     .marquee-wrap {
-      background: var(--gold);
-      overflow: hidden; padding: 14px 0;
+      background: var(--navy);
+      overflow: hidden; padding: 16px 0;
       white-space: nowrap;
     }
     .marquee-track {
       display: inline-flex; gap: 0;
-      animation: marquee 25s linear infinite;
+      animation: marquee 28s linear infinite;
     }
     .marquee-item {
-      font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
-      color: var(--bg); font-weight: 600;
+      font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+      color: rgba(255,255,255,0.7); font-weight: 500;
       padding: 0 36px;
     }
     .marquee-dot {
-      font-size: 14px; color: rgba(7,9,15,0.4);
+      font-size: 10px; color: var(--accent);
     }
     @keyframes marquee {
       from { transform: translateX(0); }
@@ -190,57 +203,57 @@
     }
 
     /* ─── SECTION BASE ────────────────────── */
-    section { padding: 120px 8%; }
+    section { padding: 100px 8%; }
 
     .s-label {
-      font-size: 9px; letter-spacing: 4px; text-transform: uppercase;
-      color: var(--gold); margin-bottom: 20px;
-      display: flex; align-items: center; gap: 14px;
+      font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 16px; font-weight: 600;
+      display: flex; align-items: center; gap: 10px;
     }
-    .s-label::before { content: ''; display: block; width: 28px; height: 1px; background: var(--gold); }
+    .s-label::before { content: ''; display: block; width: 24px; height: 2px; background: var(--accent); border-radius: 2px; }
 
     .s-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(36px, 5vw, 62px);
-      font-weight: 300; line-height: 1.05;
-      color: var(--cream); margin-bottom: 20px;
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(32px, 4vw, 52px);
+      font-weight: 600; line-height: 1.1;
+      color: var(--navy); margin-bottom: 16px;
     }
-    .s-title em { font-style: italic; color: var(--gold); }
+    .s-title em { font-style: italic; color: var(--accent); }
 
     .s-body {
-      font-size: 14px; font-weight: 300; line-height: 1.85;
-      color: var(--cream-dim); max-width: 480px;
+      font-size: 16px; font-weight: 400; line-height: 1.8;
+      color: var(--text2); max-width: 520px;
     }
 
     /* ─── SERVICES ────────────────────────── */
     .services { background: var(--bg2); }
 
     .services-layout {
-      display: grid; grid-template-columns: 1fr 2fr; gap: 80px;
-      align-items: start; margin-top: 72px;
+      display: grid; grid-template-columns: 1fr 2fr; gap: 72px;
+      align-items: start; margin-top: 64px;
     }
 
     .service-list { list-style: none; }
     .service-item {
-      border-top: 1px solid var(--border);
-      padding: 28px 0;
+      border-top: 2px solid var(--border);
+      padding: 24px 0;
       cursor: pointer;
       transition: border-color 0.3s;
     }
-    .service-item:hover { border-top-color: var(--gold); }
-    .service-item.active { border-top-color: var(--gold); }
+    .service-item:hover { border-top-color: var(--accent); }
+    .service-item.active { border-top-color: var(--accent); }
 
     .service-num {
-      font-size: 10px; letter-spacing: 2px; color: var(--gold);
-      margin-bottom: 8px; font-weight: 400;
+      font-size: 11px; letter-spacing: 2px; color: var(--accent);
+      margin-bottom: 6px; font-weight: 600;
     }
     .service-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 22px; font-weight: 400;
-      color: var(--cream); margin-bottom: 6px;
+      font-family: 'Playfair Display', serif;
+      font-size: 20px; font-weight: 600;
+      color: var(--navy); margin-bottom: 6px;
     }
     .service-desc {
-      font-size: 13px; color: var(--muted); line-height: 1.7;
+      font-size: 13px; color: var(--text2); line-height: 1.7;
       max-height: 0; overflow: hidden;
       transition: max-height 0.4s ease, opacity 0.3s;
       opacity: 0;
@@ -251,26 +264,28 @@
     }
 
     .service-feature-panel {
-      background: var(--bg3);
+      background: var(--bg);
       border: 1px solid var(--border);
-      padding: 52px;
+      border-radius: 12px;
+      padding: 44px;
       position: sticky; top: 100px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.06);
     }
     .feature-label {
-      font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
-      color: var(--gold); margin-bottom: 28px;
+      font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 24px; font-weight: 600;
     }
     .feature-items { list-style: none; }
     .feature-items li {
-      padding: 16px 0;
+      padding: 13px 0;
       border-bottom: 1px solid var(--border);
-      font-size: 13px; color: var(--cream-dim);
-      display: flex; align-items: center; gap: 14px;
-      font-weight: 300; letter-spacing: 0.3px;
+      font-size: 14px; color: var(--text2);
+      display: flex; align-items: center; gap: 12px;
+      font-weight: 400;
     }
     .feature-items li:last-child { border-bottom: none; }
     .feature-items li::before {
-      content: '—'; color: var(--gold); font-size: 11px; flex-shrink: 0;
+      content: '✓'; color: var(--accent); font-size: 13px; flex-shrink: 0; font-weight: 700;
     }
 
     /* ─── PACKAGES ────────────────────────── */
@@ -278,323 +293,555 @@
 
     .packages-grid {
       display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 1px; margin-top: 72px;
-      background: var(--border);
-      border: 1px solid var(--border);
+      gap: 24px; margin-top: 64px;
     }
 
     .pkg {
-      background: var(--bg2);
-      padding: 52px 40px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 44px 36px;
       position: relative;
-      transition: background 0.3s;
+      transition: box-shadow 0.3s, transform 0.3s, border-color 0.3s;
     }
-    .pkg:hover { background: var(--bg3); }
-    .pkg.featured { background: var(--bg3); }
+    .pkg:hover { box-shadow: 0 12px 40px rgba(0,0,0,0.1); transform: translateY(-4px); border-color: var(--border-accent); }
+    .pkg.featured {
+      background: var(--navy);
+      border-color: var(--navy);
+      box-shadow: 0 12px 40px rgba(15,31,61,0.25);
+    }
+    .pkg.featured:hover { transform: translateY(-6px); }
 
     .pkg-badge {
-      font-size: 8px; letter-spacing: 3px; text-transform: uppercase;
-      color: var(--bg); background: var(--gold);
-      padding: 5px 14px; margin-bottom: 32px; display: inline-block;
+      font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase;
+      color: var(--navy); background: #fbbf24;
+      padding: 5px 14px; margin-bottom: 28px; display: inline-block;
+      border-radius: 20px; font-weight: 700;
     }
 
     .pkg-tier {
-      font-size: 9px; letter-spacing: 4px; text-transform: uppercase;
-      color: var(--gold); margin-bottom: 16px;
+      font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 12px; font-weight: 600;
     }
+    .pkg.featured .pkg-tier { color: rgba(255,255,255,0.6); }
+
     .pkg-price {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 60px; font-weight: 300;
-      color: var(--cream); line-height: 1;
-      margin-bottom: 8px;
+      font-family: 'Playfair Display', serif;
+      font-size: 56px; font-weight: 600;
+      color: var(--navy); line-height: 1;
+      margin-bottom: 6px;
     }
-    .pkg-price sup { font-size: 22px; vertical-align: top; margin-top: 10px; display: inline-block; }
+    .pkg.featured .pkg-price { color: #fff; }
+    .pkg-price sup { font-size: 22px; vertical-align: top; margin-top: 8px; display: inline-block; }
     .pkg-period {
-      font-size: 12px; color: var(--muted); letter-spacing: 1px;
-      margin-bottom: 32px;
+      font-size: 13px; color: var(--muted); letter-spacing: 0.5px;
+      margin-bottom: 28px;
     }
+    .pkg.featured .pkg-period { color: rgba(255,255,255,0.5); }
     .pkg-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 26px; font-weight: 400;
-      color: var(--cream); margin-bottom: 12px;
+      font-family: 'Playfair Display', serif;
+      font-size: 22px; font-weight: 600;
+      color: var(--navy); margin-bottom: 8px;
     }
+    .pkg.featured .pkg-name { color: #fff; }
     .pkg-tagline {
-      font-size: 13px; color: var(--muted); line-height: 1.6;
-      margin-bottom: 36px; font-weight: 300;
+      font-size: 13px; color: var(--text2); line-height: 1.6;
+      margin-bottom: 28px; font-weight: 400;
     }
-    .pkg-divider { height: 1px; background: var(--border); margin-bottom: 32px; }
+    .pkg.featured .pkg-tagline { color: rgba(255,255,255,0.6); }
+    .pkg-divider { height: 1px; background: var(--border); margin-bottom: 24px; }
+    .pkg.featured .pkg-divider { background: rgba(255,255,255,0.15); }
 
     .pkg-features { list-style: none; }
     .pkg-features li {
-      font-size: 12px; color: var(--cream-dim); font-weight: 300;
-      padding: 10px 0; border-bottom: 1px solid var(--border);
-      display: flex; align-items: center; gap: 12px;
-      letter-spacing: 0.3px;
+      font-size: 13px; color: var(--text2); font-weight: 400;
+      padding: 9px 0; border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; gap: 10px;
     }
+    .pkg.featured .pkg-features li { color: rgba(255,255,255,0.75); border-bottom-color: rgba(255,255,255,0.12); }
     .pkg-features li:last-child { border-bottom: none; }
-    .pkg-features li::before { content: '✦'; color: var(--gold); font-size: 8px; flex-shrink: 0; }
+    .pkg-features li::before { content: '✓'; color: var(--accent); font-size: 12px; flex-shrink: 0; font-weight: 700; }
+    .pkg.featured .pkg-features li::before { color: #60a5fa; }
 
     .pkg-cta {
-      display: block; text-align: center; margin-top: 40px;
-      font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
-      padding: 14px; border: 1px solid var(--border-gold);
-      color: var(--gold); text-decoration: none; font-weight: 500;
+      display: block; text-align: center; margin-top: 32px;
+      font-size: 13px; font-weight: 600; letter-spacing: 0.3px;
+      padding: 13px; border-radius: 6px;
+      border: 2px solid var(--border-accent);
+      color: var(--accent); text-decoration: none;
       transition: all 0.2s;
     }
-    .pkg-cta:hover, .pkg.featured .pkg-cta {
-      background: var(--gold); color: var(--bg); border-color: var(--gold);
-    }
-    .pkg.featured .pkg-cta:hover { opacity: 0.85; }
+    .pkg-cta:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .pkg.featured .pkg-cta { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .pkg.featured .pkg-cta:hover { background: #60a5fa; border-color: #60a5fa; }
 
     /* ─── PROCESS ─────────────────────────── */
     .process { background: var(--bg2); }
 
     .process-steps {
       display: grid; grid-template-columns: repeat(4, 1fr);
-      gap: 0; margin-top: 72px;
-      border: 1px solid var(--border);
+      gap: 24px; margin-top: 64px;
     }
     .process-step {
-      padding: 48px 36px;
-      border-right: 1px solid var(--border);
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 40px 32px;
       position: relative;
+      transition: box-shadow 0.3s;
     }
-    .process-step:last-child { border-right: none; }
+    .process-step:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.08); }
 
     .step-n {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 72px; font-weight: 300; color: rgba(196,151,58,0.12);
-      line-height: 1; margin-bottom: 20px;
+      font-family: 'Playfair Display', serif;
+      font-size: 56px; font-weight: 600; color: var(--accent-mid);
+      line-height: 1; margin-bottom: 16px;
     }
     .step-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 20px; font-weight: 400;
-      color: var(--cream); margin-bottom: 12px;
+      font-size: 16px; font-weight: 700;
+      color: var(--navy); margin-bottom: 10px;
     }
     .step-body {
-      font-size: 13px; color: var(--muted); line-height: 1.75; font-weight: 300;
+      font-size: 13px; color: var(--text2); line-height: 1.75; font-weight: 400;
     }
 
     /* ─── ABOUT ───────────────────────────── */
     .about { background: var(--bg); }
     .about-layout {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
     }
-    .about-visual {
-      position: relative;
-    }
+    .about-visual { position: relative; }
     .about-card {
-      background: var(--bg3);
-      border: 1px solid var(--border);
-      padding: 60px;
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy2) 100%);
+      border-radius: 16px;
+      padding: 56px;
       text-align: center;
       position: relative;
-    }
-    .about-card::before {
-      content: '';
-      position: absolute; inset: 8px;
-      border: 1px solid var(--border-gold);
-      pointer-events: none;
+      box-shadow: 0 20px 60px rgba(15,31,61,0.3);
     }
     .about-monogram {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 80px; font-weight: 300;
-      color: var(--gold); line-height: 1;
-      margin-bottom: 16px;
+      font-family: 'Playfair Display', serif;
+      font-size: 72px; font-weight: 600;
+      color: rgba(255,255,255,0.15); line-height: 1;
+      margin-bottom: 12px;
     }
     .about-role {
-      font-size: 9px; letter-spacing: 4px; text-transform: uppercase;
-      color: var(--muted); margin-bottom: 36px;
+      font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+      color: rgba(255,255,255,0.5); margin-bottom: 32px; font-weight: 500;
     }
 
     .about-tags {
       display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;
     }
     .tag {
-      font-size: 9px; letter-spacing: 2px; text-transform: uppercase;
-      border: 1px solid var(--border-gold);
-      color: var(--gold); padding: 6px 14px;
+      font-size: 11px; letter-spacing: 0.5px; font-weight: 500;
+      background: rgba(255,255,255,0.1);
+      color: rgba(255,255,255,0.8); padding: 6px 14px; border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.15);
     }
 
     .about-stats {
       display: grid; grid-template-columns: 1fr 1fr;
-      gap: 1px; background: var(--border);
-      border: 1px solid var(--border);
-      margin-top: 24px;
+      gap: 16px; margin-top: 16px;
     }
     .about-stat {
-      background: var(--bg3);
-      padding: 28px 24px;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 24px 20px;
+      text-align: center;
     }
     .about-stat-n {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 36px; font-weight: 300; color: var(--gold);
+      font-family: 'Playfair Display', serif;
+      font-size: 32px; font-weight: 600; color: var(--accent);
       line-height: 1; margin-bottom: 4px;
     }
-    .about-stat-l { font-size: 10px; letter-spacing: 1.5px; color: var(--muted); text-transform: uppercase; }
+    .about-stat-l { font-size: 11px; letter-spacing: 0.5px; color: var(--text2); font-weight: 500; }
 
-    .about-text { }
     .about-text p {
-      font-size: 14px; font-weight: 300; line-height: 1.85;
-      color: var(--cream-dim); margin-bottom: 24px;
+      font-size: 15px; font-weight: 400; line-height: 1.85;
+      color: var(--text2); margin-bottom: 20px;
     }
-    .about-list { list-style: none; margin: 32px 0; }
+    .about-list { list-style: none; margin: 28px 0; }
     .about-list li {
-      font-size: 13px; font-weight: 300; color: var(--cream-dim);
-      padding: 12px 0; border-bottom: 1px solid var(--border);
+      font-size: 14px; font-weight: 400; color: var(--text2);
+      padding: 11px 0; border-bottom: 1px solid var(--border);
       display: flex; gap: 12px; align-items: flex-start;
-      letter-spacing: 0.2px;
     }
-    .about-list li::before { content: '—'; color: var(--gold); flex-shrink: 0; margin-top: 1px; }
+    .about-list li::before { content: '✓'; color: var(--accent); flex-shrink: 0; margin-top: 1px; font-weight: 700; font-size: 13px; }
 
     /* ─── TEACHING ─────────────────────────── */
     .teaching { background: var(--bg2); }
     .teach-grid {
       display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 1px; background: var(--border);
-      border: 1px solid var(--border);
-      margin-top: 72px;
+      gap: 20px; margin-top: 64px;
     }
     .teach-card {
-      background: var(--bg2);
-      padding: 44px 36px;
-      transition: background 0.3s;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 36px 28px;
+      transition: box-shadow 0.3s, transform 0.3s;
     }
-    .teach-card:hover { background: var(--bg3); }
+    .teach-card:hover { box-shadow: 0 8px 28px rgba(0,0,0,0.08); transform: translateY(-3px); }
     .teach-num {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 48px; font-weight: 300;
-      color: rgba(196,151,58,0.2); line-height: 1; margin-bottom: 20px;
+      font-family: 'Playfair Display', serif;
+      font-size: 40px; font-weight: 600;
+      color: var(--accent-mid); line-height: 1; margin-bottom: 16px;
     }
     .teach-title {
-      font-size: 13px; letter-spacing: 1px; text-transform: uppercase;
-      color: var(--cream); font-weight: 500; margin-bottom: 14px;
+      font-size: 14px; font-weight: 700;
+      color: var(--navy); margin-bottom: 10px;
     }
-    .teach-body { font-size: 13px; color: var(--muted); line-height: 1.75; font-weight: 300; }
+    .teach-body { font-size: 13px; color: var(--text2); line-height: 1.75; font-weight: 400; }
 
     /* ─── CONTACT ─────────────────────────── */
     .contact { background: var(--bg); }
     .contact-layout {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: start;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start;
     }
     .contact-info h2 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(40px, 5vw, 64px); font-weight: 300;
-      color: var(--cream); line-height: 1.05; margin-bottom: 28px;
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(36px, 4vw, 54px); font-weight: 600;
+      color: var(--navy); line-height: 1.1; margin-bottom: 20px;
     }
-    .contact-info h2 em { font-style: italic; color: var(--gold); }
+    .contact-info h2 em { font-style: italic; color: var(--accent); }
     .contact-info p {
-      font-size: 14px; font-weight: 300; color: var(--cream-dim);
-      line-height: 1.8; margin-bottom: 48px;
+      font-size: 15px; font-weight: 400; color: var(--text2);
+      line-height: 1.8; margin-bottom: 40px;
     }
 
-    .contact-detail { margin-bottom: 20px; }
+    .contact-detail { margin-bottom: 18px; }
     .contact-detail-label {
-      font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
-      color: var(--gold); margin-bottom: 4px;
+      font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 4px; font-weight: 600;
     }
-    .contact-detail-val { font-size: 14px; color: var(--cream-dim); font-weight: 300; }
-    .contact-detail-val a { color: var(--cream-dim); text-decoration: none; }
-    .contact-detail-val a:hover { color: var(--gold); }
+    .contact-detail-val { font-size: 15px; color: var(--text2); font-weight: 400; }
+    .contact-detail-val a { color: var(--text2); text-decoration: none; }
+    .contact-detail-val a:hover { color: var(--accent); }
 
-    .contact-form { display: flex; flex-direction: column; gap: 0; }
+    .contact-form {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 44px;
+    }
     .form-field {
-      border-bottom: 1px solid var(--border);
-      padding: 0; margin-bottom: 0;
-      position: relative;
+      margin-bottom: 24px;
     }
     .form-field label {
-      display: block; font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
-      color: var(--gold); padding-top: 28px; padding-bottom: 8px;
+      display: block; font-size: 12px; letter-spacing: 1px; text-transform: uppercase;
+      color: var(--navy); margin-bottom: 8px; font-weight: 600;
     }
     .form-field input, .form-field textarea, .form-field select {
-      background: none; border: none; outline: none;
-      width: 100%; font-family: 'Inter', sans-serif;
-      font-size: 14px; font-weight: 300; color: var(--cream);
-      padding-bottom: 20px;
-      caret-color: var(--gold);
+      background: var(--bg); border: 1px solid var(--border); border-radius: 8px;
+      outline: none; width: 100%; font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 14px; font-weight: 400; color: var(--text);
+      padding: 12px 16px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      caret-color: var(--accent);
     }
-    .form-field select option { background: var(--bg2); color: var(--cream); }
+    .form-field select option { background: var(--bg); color: var(--text); }
     .form-field textarea { resize: none; min-height: 100px; }
-    .form-field:focus-within { border-bottom-color: var(--gold); }
+    .form-field input:focus, .form-field textarea:focus, .form-field select:focus {
+      border-color: var(--accent); box-shadow: 0 0 0 3px rgba(37,99,235,0.1);
+    }
     .form-field input::placeholder,
     .form-field textarea::placeholder { color: var(--muted); }
 
-    .form-submit {
-      margin-top: 40px;
-    }
+    .form-submit { margin-top: 8px; }
     .btn-submit {
-      background: none; border: 1px solid var(--border-gold);
-      color: var(--gold); font-family: 'Inter', sans-serif;
-      font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
-      font-weight: 500; padding: 16px 48px; cursor: pointer;
-      transition: all 0.2s;
+      background: var(--accent); border: none;
+      color: #fff; font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 14px; font-weight: 600; letter-spacing: 0.3px;
+      padding: 14px 40px; border-radius: 8px; cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      box-shadow: 0 4px 14px rgba(37,99,235,0.3);
+      width: 100%;
     }
-    .btn-submit:hover { background: var(--gold); color: var(--bg); border-color: var(--gold); }
+    .btn-submit:hover { background: var(--navy); transform: translateY(-1px); }
 
     /* ─── FOOTER ──────────────────────────── */
     footer {
-      background: var(--bg2);
+      background: var(--navy);
       padding: 72px 8% 36px;
-      border-top: 1px solid var(--border);
     }
     .footer-top {
       display: flex; justify-content: space-between; align-items: flex-start;
-      margin-bottom: 64px;
+      margin-bottom: 56px;
       flex-wrap: wrap; gap: 40px;
     }
     .footer-tagline {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 36px; font-weight: 300;
-      color: var(--cream); max-width: 400px; line-height: 1.1;
+      font-family: 'Playfair Display', serif;
+      font-size: 32px; font-weight: 600;
+      color: #fff; max-width: 380px; line-height: 1.2;
     }
-    .footer-tagline em { font-style: italic; color: var(--gold); }
+    .footer-tagline em { font-style: italic; color: #60a5fa; }
 
     .footer-links { display: flex; gap: 64px; flex-wrap: wrap; }
     .footer-col h4 {
-      font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
-      color: var(--gold); margin-bottom: 20px;
+      font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+      color: rgba(255,255,255,0.4); margin-bottom: 20px; font-weight: 600;
     }
     .footer-col ul { list-style: none; }
     .footer-col ul li { margin-bottom: 12px; }
     .footer-col ul a {
-      font-size: 13px; color: var(--muted); text-decoration: none; font-weight: 300;
+      font-size: 14px; color: rgba(255,255,255,0.6); text-decoration: none; font-weight: 400;
       transition: color 0.2s;
     }
-    .footer-col ul a:hover { color: var(--cream); }
+    .footer-col ul a:hover { color: #fff; }
 
     .footer-bottom {
-      border-top: 1px solid var(--border);
+      border-top: 1px solid rgba(255,255,255,0.1);
       padding-top: 28px;
       display: flex; justify-content: space-between; align-items: center;
       flex-wrap: wrap; gap: 16px;
     }
-    .footer-copy { font-size: 11px; color: var(--muted); letter-spacing: 0.5px; }
+    .footer-copy { font-size: 13px; color: rgba(255,255,255,0.4); }
     .footer-socials { display: flex; gap: 24px; }
     .footer-socials a {
-      font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
-      color: var(--muted); text-decoration: none;
+      font-size: 13px; color: rgba(255,255,255,0.4); text-decoration: none; font-weight: 400;
       transition: color 0.2s;
     }
-    .footer-socials a:hover { color: var(--gold); }
+    .footer-socials a:hover { color: #fff; }
+
+    /* ─── AI BADGE ───────────────────────── */
+    .ai-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: linear-gradient(135deg, #1e3a5f, #0f1f3d);
+      color: rgba(255,255,255,0.9);
+      padding: 7px 18px; border-radius: 20px;
+      font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 600;
+      margin-bottom: 20px;
+      border: 1px solid rgba(37,99,235,0.5);
+    }
+    .ai-badge-dot {
+      width: 7px; height: 7px; background: #22c55e; border-radius: 50%;
+      animation: pulse-green 2s infinite;
+    }
+    @keyframes pulse-green {
+      0% { box-shadow: 0 0 0 0 rgba(34,197,94,0.5); }
+      70% { box-shadow: 0 0 0 7px rgba(34,197,94,0); }
+      100% { box-shadow: 0 0 0 0 rgba(34,197,94,0); }
+    }
+
+    /* ─── VOICE BOT ───────────────────────── */
+    .voicebot { background: var(--navy); color: #fff; position: relative; overflow: hidden; }
+    .voicebot::before {
+      content: ''; position: absolute; top: -40%; left: -5%;
+      width: 55%; height: 180%;
+      background: radial-gradient(ellipse, rgba(37,99,235,0.18) 0%, transparent 70%);
+    }
+    .voicebot-layout {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+      position: relative; z-index: 1;
+    }
+    .voicebot .s-label { color: rgba(255,255,255,0.45); }
+    .voicebot .s-label::before { background: rgba(255,255,255,0.3); }
+    .voicebot-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(32px, 4vw, 52px); font-weight: 600; line-height: 1.1;
+      color: #fff; margin-bottom: 16px;
+    }
+    .voicebot-title em { font-style: italic; color: #60a5fa; }
+    .voicebot-body {
+      font-size: 16px; font-weight: 400; line-height: 1.8;
+      color: rgba(255,255,255,0.6); max-width: 440px; margin-bottom: 32px;
+    }
+    .voicebot-qs { list-style: none; margin-bottom: 40px; }
+    .voicebot-qs li {
+      font-size: 14px; color: rgba(255,255,255,0.7); font-weight: 400;
+      padding: 11px 0; border-bottom: 1px solid rgba(255,255,255,0.08);
+      display: flex; align-items: flex-start; gap: 12px;
+    }
+    .voicebot-qs li::before { content: '→'; color: #60a5fa; flex-shrink: 0; font-weight: 700; }
+    .voicebot-right {
+      display: flex; flex-direction: column; align-items: center; gap: 28px;
+    }
+    .voicebot-orb-wrap { display: flex; flex-direction: column; align-items: center; gap: 20px; }
+    .voicebot-orb {
+      width: 180px; height: 180px; border-radius: 50%;
+      background: linear-gradient(135deg, #1e40af, #2563eb);
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 0 0 20px rgba(37,99,235,0.1), 0 0 0 40px rgba(37,99,235,0.05);
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .voicebot-orb:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 0 26px rgba(37,99,235,0.12), 0 0 0 52px rgba(37,99,235,0.06);
+    }
+    .voicebot-orb.active {
+      background: linear-gradient(135deg, #991b1b, #dc2626);
+      animation: orb-pulse 1.4s ease-in-out infinite;
+    }
+    @keyframes orb-pulse {
+      0%, 100% { box-shadow: 0 0 0 20px rgba(220,38,38,0.1), 0 0 0 40px rgba(220,38,38,0.05); }
+      50% { box-shadow: 0 0 0 30px rgba(220,38,38,0.15), 0 0 0 60px rgba(220,38,38,0.08); }
+    }
+    .orb-icon { font-size: 56px; line-height: 1; user-select: none; }
+    .voicebot-orb-hint {
+      text-align: center;
+    }
+    .voicebot-orb-hint strong { display: block; font-size: 15px; font-weight: 600; color: #fff; margin-bottom: 4px; }
+    .voicebot-orb-hint span { font-size: 12px; color: rgba(255,255,255,0.45); letter-spacing: 0.3px; }
+    .voicebot-status {
+      font-size: 12px; letter-spacing: 1px; text-transform: uppercase;
+      color: #22c55e; font-weight: 600; min-height: 18px;
+    }
+    .voicebot-ava-card {
+      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 12px; padding: 24px 28px; max-width: 280px;
+      text-align: center;
+    }
+    .voicebot-ava-name { font-size: 13px; font-weight: 600; color: #fff; margin-bottom: 4px; }
+    .voicebot-ava-role { font-size: 11px; color: rgba(255,255,255,0.4); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 12px; }
+    .voicebot-ava-langs { font-size: 12px; color: rgba(255,255,255,0.6); }
+
+    /* ─── FAQ ─────────────────────────────── */
+    .faq { background: var(--bg2); }
+    .faq-list { max-width: 780px; margin-top: 56px; }
+    .faq-item { border-top: 1px solid var(--border); cursor: pointer; }
+    .faq-item:last-child { border-bottom: 1px solid var(--border); }
+    .faq-q {
+      font-size: 16px; font-weight: 600; color: var(--navy);
+      padding: 24px 0; display: flex; justify-content: space-between; align-items: center;
+      gap: 16px; user-select: none; line-height: 1.4;
+    }
+    .faq-icon {
+      width: 28px; height: 28px; border-radius: 50%; border: 2px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; flex-shrink: 0; color: var(--accent);
+      transition: transform 0.3s, border-color 0.3s;
+      font-weight: 300;
+    }
+    .faq-item.open .faq-icon { transform: rotate(45deg); border-color: var(--accent); }
+    .faq-a {
+      font-size: 14px; color: var(--text2); line-height: 1.9; font-weight: 400;
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.4s ease, padding-bottom 0.3s;
+      padding-bottom: 0;
+    }
+    .faq-item.open .faq-a { max-height: 320px; padding-bottom: 28px; }
+
+    /* ─── SCHEDULE ────────────────────────── */
+    .schedule { background: var(--bg); }
+    .schedule-layout {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: start;
+      margin-top: 56px;
+    }
+    .schedule-info h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px; font-weight: 600; color: var(--navy); margin-bottom: 16px;
+    }
+    .schedule-info p { font-size: 15px; color: var(--text2); line-height: 1.8; margin-bottom: 28px; }
+    .schedule-steps { list-style: none; }
+    .schedule-steps li {
+      font-size: 14px; color: var(--text2); padding: 14px 0;
+      border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 16px;
+    }
+    .schedule-step-n {
+      width: 28px; height: 28px; border-radius: 50%; background: var(--accent);
+      color: #fff; font-size: 12px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .schedule-card {
+      background: var(--bg2); border: 1px solid var(--border); border-radius: 16px; padding: 44px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+    }
+    .schedule-card h4 {
+      font-size: 19px; font-weight: 700; color: var(--navy); margin-bottom: 8px;
+    }
+    .schedule-card p { font-size: 14px; color: var(--text2); margin-bottom: 28px; line-height: 1.7; }
+    .schedule-opts { display: flex; flex-direction: column; gap: 12px; margin-bottom: 28px; }
+    .schedule-opt {
+      border: 2px solid var(--border); border-radius: 8px; padding: 16px 20px;
+      cursor: pointer; transition: border-color 0.2s, background 0.2s;
+      display: flex; align-items: center; gap: 14px;
+    }
+    .schedule-opt:hover, .schedule-opt.sel { border-color: var(--accent); background: var(--accent-light); }
+    .schedule-opt-icon { font-size: 22px; flex-shrink: 0; }
+    .schedule-opt-text strong { display: block; font-size: 14px; font-weight: 600; color: var(--navy); margin-bottom: 2px; }
+    .schedule-opt-text span { font-size: 12px; color: var(--text2); }
+    .schedule-form-field { margin-bottom: 16px; }
+    .schedule-form-field label {
+      display: block; font-size: 11px; letter-spacing: 1px; text-transform: uppercase;
+      color: var(--navy); margin-bottom: 7px; font-weight: 600;
+    }
+    .schedule-form-field input, .schedule-form-field select {
+      background: var(--bg); border: 1px solid var(--border); border-radius: 8px;
+      outline: none; width: 100%; font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 14px; font-weight: 400; color: var(--text); padding: 12px 16px;
+      transition: border-color 0.2s;
+    }
+    .schedule-form-field input:focus, .schedule-form-field select:focus { border-color: var(--accent); }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .btn-schedule {
+      background: var(--accent); border: none; color: #fff;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 14px; font-weight: 600; padding: 14px;
+      border-radius: 8px; cursor: pointer; width: 100%;
+      transition: background 0.2s; box-shadow: 0 4px 14px rgba(37,99,235,0.3);
+    }
+    .btn-schedule:hover { background: var(--navy); }
 
     /* ─── MOBILE ──────────────────────────── */
+    /* ─── HAMBURGER ──────────────────────── */
+    .hamburger {
+      display: none;
+      flex-direction: column; justify-content: center; gap: 5px;
+      width: 36px; height: 36px; cursor: pointer;
+      background: none; border: none; padding: 4px;
+    }
+    .hamburger span {
+      display: block; height: 2px; background: var(--navy);
+      border-radius: 2px; transition: all 0.25s;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .mobile-menu {
+      display: none;
+      position: fixed; top: 72px; left: 0; right: 0; z-index: 99;
+      background: #fff; border-bottom: 1px solid var(--border);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+      padding: 24px 6%;
+      flex-direction: column; gap: 4px;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-size: 16px; font-weight: 500; color: var(--text2);
+      text-decoration: none; padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .mobile-menu a:last-child { border-bottom: none; color: var(--accent); font-weight: 600; }
+    .mobile-menu a:hover { color: var(--navy); }
+
     @media (max-width: 900px) {
-      section { padding: 80px 6%; }
-      .services-layout { grid-template-columns: 1fr; gap: 48px; }
+      section { padding: 72px 6%; }
+      .services-layout { grid-template-columns: 1fr; gap: 40px; }
       .packages-grid { grid-template-columns: 1fr; }
       .process-steps { grid-template-columns: 1fr 1fr; }
       .about-layout { grid-template-columns: 1fr; gap: 48px; }
-      .contact-layout { grid-template-columns: 1fr; gap: 60px; }
-      .teach-grid { grid-template-columns: 1fr; }
+      .contact-layout { grid-template-columns: 1fr; gap: 48px; }
+      .teach-grid { grid-template-columns: 1fr 1fr; }
+      .voicebot-layout { grid-template-columns: 1fr; gap: 56px; }
+      .schedule-layout { grid-template-columns: 1fr; gap: 48px; }
+      .form-row { grid-template-columns: 1fr; }
       nav .nav-links { display: none; }
-      .hero h1 { font-size: clamp(42px, 10vw, 72px); }
+      .hamburger { display: flex; }
+      .hero h1 { font-size: clamp(38px, 9vw, 64px); }
+      .hero::before, .hero::after { width: 100%; clip-path: none; opacity: 0.3; }
     }
 
     @media (max-width: 560px) {
       .process-steps { grid-template-columns: 1fr; }
       .about-stats { grid-template-columns: 1fr 1fr; }
       .footer-top { flex-direction: column; }
+      .teach-grid { grid-template-columns: 1fr; }
+      .contact-form { padding: 28px 20px; }
+      .schedule-card { padding: 28px 20px; }
     }
   </style>
 </head>
@@ -608,21 +855,38 @@
     </a>
     <ul class="nav-links">
       <li><a href="#services">Services</a></li>
-      <li><a href="#packages">Packages</a></li>
-      <li><a href="#about">About</a></li>
+      <li><a href="#voicebot">AI Assistant</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#schedule">Schedule</a></li>
       <li><a href="#contact" class="nav-cta">Enquire</a></li>
     </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#services" onclick="closeMobileMenu()">Services</a>
+    <a href="#voicebot" onclick="closeMobileMenu()">AI Assistant</a>
+    <a href="#faq" onclick="closeMobileMenu()">FAQ</a>
+    <a href="#schedule" onclick="closeMobileMenu()">Schedule</a>
+    <a href="#contact" onclick="closeMobileMenu()">Enquire Now →</a>
+  </div>
 
   <!-- HERO -->
   <section class="hero">
     <div class="hero-content">
-      <div class="hero-eyebrow">Professional Admin. Remote. Reliable.</div>
+      <div class="ai-badge"><span class="ai-badge-dot"></span> AI-Powered Admin Service</div>
+      <div class="hero-eyebrow">Always On. Fully Managed. Zero Overhead.</div>
       <h1>Admin Done<br/><em>Properly.</em></h1>
-      <p class="hero-desc">Purchasing, supplier communication, order processing and office management — handled for your business every month, so you can focus on what matters.</p>
+      <p class="hero-desc">An AI-powered purchasing and office admin service — handling supplier communication, order processing, Excel reporting and more. No hiring. No managing. Just results.</p>
       <div class="hero-actions">
-        <a href="#packages" class="btn-solid">View Packages</a>
-        <a href="#contact" class="btn-ghost">Book a free call</a>
+        <a href="#schedule" class="btn-solid">Book a Free Call</a>
+        <a href="#voicebot" class="btn-ghost">Talk to Our AI →</a>
+      </div>
+      <div class="hero-trust">
+        <div class="trust-item"><div class="trust-icon">✓</div> No long contracts</div>
+        <div class="trust-item"><div class="trust-icon">✓</div> Up and running in 48hrs</div>
+        <div class="trust-item"><div class="trust-icon">✓</div> From £199/month</div>
       </div>
     </div>
     <div class="hero-scroll">Scroll</div>
@@ -653,7 +917,7 @@
 
   <!-- SERVICES -->
   <section class="services" id="services">
-    <div class="s-label">What I Do</div>
+    <div class="s-label">What We Do</div>
     <h2 class="s-title">Every detail of your<br/>admin, <em>handled.</em></h2>
     <div class="services-layout">
       <ul class="service-list">
@@ -771,6 +1035,42 @@
     </p>
   </section>
 
+  <!-- VOICE BOT -->
+  <section class="voicebot" id="voicebot">
+    <div class="voicebot-layout">
+      <div class="voicebot-left">
+        <div class="s-label">AI Voice Assistant</div>
+        <h2 class="voicebot-title">Meet <em>Ava</em> — your<br/>AI admin assistant.</h2>
+        <p class="voicebot-body">Ava is always on, speaks in a warm British tone, and can answer your questions about our services, pricing, and process — right now, in real time.</p>
+        <ul class="voicebot-qs">
+          <li>What does your service actually cover?</li>
+          <li>Which package is right for my business?</li>
+          <li>How quickly can you get started?</li>
+          <li>Do you sign NDAs or contracts?</li>
+          <li>What happens if I want to cancel?</li>
+          <li>Can I book a discovery call through you?</li>
+        </ul>
+      </div>
+      <div class="voicebot-right">
+        <div class="voicebot-orb-wrap">
+          <div class="voicebot-orb" id="orbBtn" onclick="toggleVapi()">
+            <span class="orb-icon">🎙️</span>
+          </div>
+          <div class="voicebot-orb-hint">
+            <strong id="orbLabel">Talk to Ava</strong>
+            <span>Click to start — no download needed</span>
+          </div>
+          <div class="voicebot-status" id="vapiStatus"></div>
+        </div>
+        <div class="voicebot-ava-card">
+          <div class="voicebot-ava-name">Ava — AI Receptionist</div>
+          <div class="voicebot-ava-role">PeakAdmin Solutions</div>
+          <div class="voicebot-ava-langs">Warm · Professional · British English</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- PROCESS -->
   <section class="process" id="process">
     <div class="s-label">How It Works</div>
@@ -784,12 +1084,12 @@
       <div class="process-step">
         <div class="step-n">02</div>
         <div class="step-title">Tailored Onboarding</div>
-        <div class="step-body">I learn your suppliers, processes and systems. Everything set up within 48 hours of sign-off.</div>
+        <div class="step-body">We map your suppliers, processes and systems. Everything configured and live within 48 hours of sign-off.</div>
       </div>
       <div class="process-step">
         <div class="step-n">03</div>
         <div class="step-title">Admin, Handled</div>
-        <div class="step-body">From day one I'm managing your purchasing and admin. Regular updates, always reachable.</div>
+        <div class="step-body">From day one your purchasing and admin is being managed. Regular updates, always reachable.</div>
       </div>
       <div class="process-step">
         <div class="step-n">04</div>
@@ -804,8 +1104,8 @@
     <div class="about-layout">
       <div class="about-visual">
         <div class="about-card">
-          <div class="about-monogram">PA</div>
-          <div class="about-role">Purchasing &amp; Office Admin Specialist</div>
+          <div class="about-monogram">AI</div>
+          <div class="about-role">AI-Powered Admin &amp; Procurement Service</div>
           <div class="about-tags">
             <span class="tag">Purchasing</span>
             <span class="tag">Procurement</span>
@@ -837,9 +1137,9 @@
       </div>
       <div class="about-text">
         <div class="s-label">About</div>
-        <h2 class="s-title">Experienced admin that works like part<br/>of your <em>team.</em></h2>
-        <p>I'm a seasoned purchasing and office administration professional with hands-on experience managing the full procurement cycle — from raising purchase orders to managing supplier relationships and keeping records clean in Excel.</p>
-        <p>I work with small businesses and growing teams who need professional admin support without the cost of a full-time hire. Based in the UK, fully remote-ready.</p>
+        <h2 class="s-title">AI-powered admin that works like part<br/>of your <em>team.</em></h2>
+        <p>PeakAdmin Solutions is an AI-powered purchasing and office administration service built for small businesses. We combine intelligent automation with human-level attention to detail — handling the full procurement cycle so you don't have to.</p>
+        <p>Our AI works across your suppliers, processes and systems without the cost, overhead or management of a full-time hire. UK-based, fully remote, available when you need us.</p>
         <ul class="about-list">
           <li>Purchase order creation, tracking and management</li>
           <li>Supplier communication and relationship management</li>
@@ -848,7 +1148,7 @@
           <li>Invoice processing and accounts admin support</li>
           <li>General office administration and email management</li>
         </ul>
-        <a href="#contact" class="btn-solid" style="display:inline-block;margin-top:36px;">Start a Conversation</a>
+        <a href="#schedule" class="btn-solid" style="display:inline-block;margin-top:36px;">Book a Discovery Call</a>
       </div>
     </div>
   </section>
@@ -856,8 +1156,8 @@
   <!-- TEACHING -->
   <section class="teaching">
     <div class="s-label">Knowledge Transfer</div>
-    <h2 class="s-title">I don't just do it —<br/>I <em>teach you how.</em></h2>
-    <p class="s-body">Every system I build comes with documentation. Your team should always be able to run it without me.</p>
+    <h2 class="s-title">We don't just do it —<br/>we <em>document everything.</em></h2>
+    <p class="s-body">Every system we build comes with full documentation. Your team should always be able to run it independently.</p>
     <div class="teach-grid">
       <div class="teach-card">
         <div class="teach-num">01</div>
@@ -892,27 +1192,149 @@
     </div>
   </section>
 
+  <!-- FAQ -->
+  <section class="faq" id="faq">
+    <div class="s-label">Common Questions</div>
+    <h2 class="s-title">Everything you need<br/>to <em>know.</em></h2>
+    <div class="faq-list">
+      <div class="faq-item open">
+        <div class="faq-q">What exactly is AI-powered admin?<span class="faq-icon">+</span></div>
+        <div class="faq-a">PeakAdmin Solutions uses AI to handle the day-to-day tasks of purchasing administration — raising purchase orders, communicating with suppliers, comparing quotes and generating reports. It works at the speed and consistency of software, but with the judgment and tone of a professional admin. Think of it as a smart admin assistant that never takes a day off.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Is there a real person involved, or is it purely AI?<span class="faq-icon">+</span></div>
+        <div class="faq-a">PeakAdmin is an AI-first service. For the majority of tasks — supplier emails, PO processing, reporting and data management — everything is handled by our AI. For complex negotiations or strategic decisions, a human supervisor reviews and approves before anything is sent. You get the speed of AI with the quality control of human oversight.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How do I get started — what does onboarding look like?<span class="faq-icon">+</span></div>
+        <div class="faq-a">After signing up, you'll have a 20-minute discovery call (free, no obligation). We then map your suppliers, systems and processes. Within 48 hours of sign-off, we're live and managing your admin. We'll ask for access to your email or procurement tools via secure credentials — nothing more.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What software or tools do you need access to?<span class="faq-icon">+</span></div>
+        <div class="faq-a">We work with whatever you already use — email (Gmail, Outlook), spreadsheets (Excel, Google Sheets), accounting tools (Xero, QuickBooks) and any procurement software. If you're not using anything formal yet, we'll help you set up a simple system that works. We never require you to change your existing tools.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Is my business data secure?<span class="faq-icon">+</span></div>
+        <div class="faq-a">Yes. We sign a confidentiality agreement before any work begins. Your supplier lists, pricing, invoices and business information are never shared with third parties. All data is handled in accordance with UK GDPR. We can also sign your own NDA if required.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Can I cancel at any time?<span class="faq-icon">+</span></div>
+        <div class="faq-a">Yes — no long contracts. All packages require 30 days written notice to cancel. There are no cancellation fees, no lock-in periods, and no awkward conversations. If you're not happy, we want to know — and if you still want to leave, we'll make sure the handover is clean and complete.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What if I only need help with one project?<span class="faq-icon">+</span></div>
+        <div class="faq-a">We offer a day rate of £120/day for one-off projects — supplier audits, quote comparison exercises, spreadsheet builds, or anything else you need done without committing to a monthly package. Get in touch and we'll scope it out for you.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How is this different from hiring a VA (Virtual Assistant)?<span class="faq-icon">+</span></div>
+        <div class="faq-a">A traditional VA is one person — limited hours, limited expertise, and if they're sick or leave, you're back to square one. PeakAdmin is an AI system with human oversight, purpose-built for purchasing and procurement. It's faster, more consistent, more scalable, and doesn't require you to manage anyone.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCHEDULE -->
+  <section class="schedule" id="schedule">
+    <div class="s-label">Book a Call</div>
+    <h2 class="s-title">Ready to get started?<br/><em>Let's talk.</em></h2>
+    <p class="s-body">Book a free 20-minute discovery call. No pitch, no pressure — just a conversation about your business and whether we're a fit.</p>
+    <div class="schedule-layout">
+      <div class="schedule-info">
+        <h3>What happens on the call?</h3>
+        <p>We'll spend 20 minutes understanding your current admin setup, your biggest pain points, and which package (if any) makes sense for your business. You'll leave with a clear picture of how PeakAdmin works — and we'll leave with everything we need to get you started.</p>
+        <ul class="schedule-steps">
+          <li><span class="schedule-step-n">1</span>Fill in the form with a few quick details</li>
+          <li><span class="schedule-step-n">2</span>We'll confirm your preferred time within a few hours</li>
+          <li><span class="schedule-step-n">3</span>Ava (our AI) or a team member joins the call</li>
+          <li><span class="schedule-step-n">4</span>You get a written summary and next steps by email</li>
+        </ul>
+      </div>
+      <div class="schedule-card">
+        <h4>Request a Discovery Call</h4>
+        <p>Free · 20 minutes · No obligation</p>
+        <form id="scheduleForm" action="https://formspree.io/f/mojrgzbo" method="POST">
+          <div class="schedule-opts" id="scheduleOpts">
+            <div class="schedule-opt sel" data-val="morning" onclick="selectOpt(this)">
+              <span class="schedule-opt-icon">🌅</span>
+              <div class="schedule-opt-text">
+                <strong>Morning</strong>
+                <span>9:00am – 12:00pm</span>
+              </div>
+            </div>
+            <div class="schedule-opt" data-val="afternoon" onclick="selectOpt(this)">
+              <span class="schedule-opt-icon">☀️</span>
+              <div class="schedule-opt-text">
+                <strong>Afternoon</strong>
+                <span>12:00pm – 5:00pm</span>
+              </div>
+            </div>
+            <div class="schedule-opt" data-val="evening" onclick="selectOpt(this)">
+              <span class="schedule-opt-icon">🌆</span>
+              <div class="schedule-opt-text">
+                <strong>Evening</strong>
+                <span>5:00pm – 7:00pm</span>
+              </div>
+            </div>
+          </div>
+          <input type="hidden" name="preferred_time" id="schedPreferredTime" value="morning" />
+          <input type="hidden" name="_subject" value="Discovery Call Request — PeakAdmin" />
+          <div class="form-row">
+            <div class="schedule-form-field">
+              <label>Your Name</label>
+              <input type="text" name="name" placeholder="Jane Smith" required />
+            </div>
+            <div class="schedule-form-field">
+              <label>Phone Number</label>
+              <input type="tel" name="phone" placeholder="07700 900000" required />
+            </div>
+          </div>
+          <div class="schedule-form-field">
+            <label>Email Address</label>
+            <input type="email" name="email" placeholder="you@business.com" required />
+          </div>
+          <div class="schedule-form-field">
+            <label>Preferred Day</label>
+            <select name="preferred_day">
+              <option value="">Any day this week</option>
+              <option value="monday">Monday</option>
+              <option value="tuesday">Tuesday</option>
+              <option value="wednesday">Wednesday</option>
+              <option value="thursday">Thursday</option>
+              <option value="friday">Friday</option>
+            </select>
+          </div>
+          <button type="submit" class="btn-schedule" id="schedBtn">Request My Free Call →</button>
+          <p id="schedSuccess" style="display:none;margin-top:14px;color:#16a34a;font-size:13px;font-weight:500;text-align:center;">✓ Request received — we'll confirm your call time shortly.</p>
+          <p id="schedError" style="display:none;margin-top:14px;color:#dc2626;font-size:13px;text-align:center;">Something went wrong. Please email tony.625.ai@gmail.com</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
   <!-- CONTACT -->
   <section class="contact" id="contact">
     <div class="contact-layout">
       <div class="contact-info">
         <div class="s-label">Get in Touch</div>
-        <h2>Let's talk<br/>about your<br/><em>business.</em></h2>
-        <p>Tell me about your admin setup and I'll come back within 24 hours. The first call is always free — no pitch, no pressure.</p>
+        <h2>Tell us about<br/>your<br/><em>business.</em></h2>
+        <p>Answer a few quick questions and we'll come back within 24 hours. If you'd prefer to talk, request a callback and we'll call you at a time that suits.</p>
         <div class="contact-detail">
           <div class="contact-detail-label">Email</div>
-          <div class="contact-detail-val"><a href="mailto:exe6exe7.tony625@gmail.com">exe6exe7.tony625@gmail.com</a></div>
+          <div class="contact-detail-val"><a href="mailto:tony.625.ai@gmail.com">tony.625.ai@gmail.com</a></div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-label">AI Assistant</div>
+          <div class="contact-detail-val"><a href="#voicebot">Talk to Ava — available now →</a></div>
         </div>
         <div class="contact-detail">
           <div class="contact-detail-label">Location</div>
-          <div class="contact-detail-val">UK-based — working fully remote</div>
+          <div class="contact-detail-val">UK-based — fully remote</div>
         </div>
         <div class="contact-detail">
           <div class="contact-detail-label">Response time</div>
           <div class="contact-detail-val">Within 24 hours</div>
         </div>
       </div>
-      <form class="contact-form" action="mailto:exe6exe7.tony625@gmail.com" method="GET" enctype="text/plain">
+      <form class="contact-form" id="contactForm" action="https://formspree.io/f/mojrgzbo" method="POST">
         <div class="form-field">
           <label>Your Name</label>
           <input type="text" name="name" placeholder="John Smith" required />
@@ -926,22 +1348,80 @@
           <input type="email" name="email" placeholder="you@business.com" required />
         </div>
         <div class="form-field">
+          <label>Phone Number</label>
+          <input type="tel" name="phone" placeholder="07700 900000" />
+        </div>
+        <div class="form-field">
+          <label>Team Size</label>
+          <select name="team_size">
+            <option value="">Select</option>
+            <option value="solo">Just me (sole trader)</option>
+            <option value="2-5">2–5 people</option>
+            <option value="6-15">6–15 people</option>
+            <option value="15+">15+ people</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label>Current Admin Setup</label>
+          <select name="current_setup">
+            <option value="">Select</option>
+            <option value="none">No admin support — doing it myself</option>
+            <option value="part-time">Part-time or occasional help</option>
+            <option value="va">Using a VA or freelancer</option>
+            <option value="staff">In-house staff member</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label>Biggest Admin Challenge</label>
+          <select name="challenge">
+            <option value="">Select</option>
+            <option value="pos">Purchase order management</option>
+            <option value="suppliers">Supplier communication & chasing</option>
+            <option value="reporting">Reporting & spreadsheets</option>
+            <option value="invoices">Invoice processing</option>
+            <option value="all">All of the above</option>
+            <option value="other">Something else</option>
+          </select>
+        </div>
+        <div class="form-field">
           <label>Package Interest</label>
           <select name="package">
-            <option value="">Not sure yet</option>
+            <option value="">Not sure yet — help me decide</option>
             <option value="starter">Starter — £199/mo</option>
             <option value="professional">Professional — £349/mo</option>
             <option value="enterprise">Enterprise — £599/mo</option>
-            <option value="dayrate">Day Rate — £120/day</option>
+            <option value="dayrate">One-off project — £120/day</option>
           </select>
         </div>
         <div class="form-field">
           <label>Your Message</label>
-          <textarea name="message" placeholder="Tell me about your admin needs..."></textarea>
+          <textarea name="message" placeholder="Tell us anything else about your admin needs, current challenges, or questions..."></textarea>
+        </div>
+        <div class="form-field" style="background:var(--accent-light);border:2px solid var(--border-accent);border-radius:10px;padding:20px;">
+          <label style="color:var(--accent);margin-bottom:12px;">Request a Callback</label>
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
+            <input type="checkbox" id="callbackCheck" name="callback_requested" value="yes" style="width:18px;height:18px;accent-color:var(--accent);border-radius:4px;flex-shrink:0;" onchange="toggleCallback(this)" />
+            <label for="callbackCheck" style="font-size:14px;color:var(--text2);text-transform:none;letter-spacing:0;font-weight:400;cursor:pointer;margin:0;">Yes, please call me back</label>
+          </div>
+          <div id="callbackFields" style="display:none;">
+            <select name="callback_time" style="background:var(--bg);border:1px solid var(--border);border-radius:8px;width:100%;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;color:var(--text);padding:12px 16px;">
+              <option value="">Best time to call</option>
+              <option value="morning">Morning (9am – 12pm)</option>
+              <option value="afternoon">Afternoon (12pm – 5pm)</option>
+              <option value="evening">Evening (5pm – 7pm)</option>
+              <option value="anytime">Anytime works</option>
+            </select>
+          </div>
         </div>
         <div class="form-submit">
-          <button type="submit" class="btn-submit">Send Enquiry</button>
+          <button type="submit" class="btn-submit" id="submitBtn">Send Enquiry</button>
         </div>
+        <p id="formSuccess" style="display:none;margin-top:16px;color:#16a34a;font-size:14px;font-weight:500;text-align:center;">
+          ✓ Message sent — we'll be in touch within 24 hours.
+        </p>
+        <p id="formError" style="display:none;margin-top:16px;color:#dc2626;font-size:14px;text-align:center;">
+          Something went wrong. Please email tony.625.ai@gmail.com directly.
+        </p>
       </form>
     </div>
   </section>
@@ -950,7 +1430,7 @@
   <footer>
     <div class="footer-top">
       <div class="footer-tagline">
-        Professional admin.<br/><em>Delivered monthly.</em>
+        AI-powered admin.<br/><em>Delivered monthly.</em>
       </div>
       <div class="footer-links">
         <div class="footer-col">
@@ -972,12 +1452,12 @@
           </ul>
         </div>
         <div class="footer-col">
-          <h4>Connect</h4>
+          <h4>Get Started</h4>
           <ul>
-            <li><a href="https://linkedin.com" target="_blank">LinkedIn</a></li>
-            <li><a href="https://facebook.com" target="_blank">Facebook</a></li>
-            <li><a href="https://x.com" target="_blank">X (Twitter)</a></li>
-            <li><a href="mailto:exe6exe7.tony625@gmail.com">Email</a></li>
+            <li><a href="#voicebot">Talk to Our AI</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#schedule">Book a Call</a></li>
+            <li><a href="mailto:tony.625.ai@gmail.com">Email Us</a></li>
           </ul>
         </div>
       </div>
@@ -992,19 +1472,157 @@
     </div>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/@vapi-ai/web@latest/dist/vapi.umd.js"></script>
   <script>
-    // Nav scroll effect
+    // ─── Vapi voice bot ──────────────────────────────────────────
+    const VAPI_ASSISTANT_ID = '7a49f3ce-6f4c-42f2-b964-17653b518ec7';
+    let vapi = null;
+    let vapiActive = false;
+
+    function getVapi() {
+      if (!vapi) {
+        vapi = new Vapi('e55683f5-bcc0-4b4d-81d5-a8f39f6e6b36');
+        vapi.on('call-start', () => {
+          document.getElementById('vapiStatus').textContent = 'Connected — Ava is listening...';
+        });
+        vapi.on('call-end', () => {
+          setOrbIdle();
+        });
+        vapi.on('speech-start', () => {
+          document.getElementById('vapiStatus').textContent = 'Ava is speaking...';
+        });
+        vapi.on('speech-end', () => {
+          document.getElementById('vapiStatus').textContent = 'Listening...';
+        });
+        vapi.on('error', () => {
+          setOrbIdle();
+          document.getElementById('vapiStatus').textContent = 'Could not connect — try again';
+        });
+      }
+      return vapi;
+    }
+
+    function setOrbIdle() {
+      const orb = document.getElementById('orbBtn');
+      orb.classList.remove('active');
+      document.getElementById('orbLabel').textContent = 'Talk to Ava';
+      document.getElementById('vapiStatus').textContent = '';
+      vapiActive = false;
+    }
+
+    function toggleVapi() {
+      const orb = document.getElementById('orbBtn');
+      if (vapiActive) {
+        getVapi().stop();
+        return;
+      }
+      orb.classList.add('active');
+      document.getElementById('orbLabel').textContent = 'End Call';
+      document.getElementById('vapiStatus').textContent = 'Connecting...';
+      vapiActive = true;
+      getVapi().start(VAPI_ASSISTANT_ID);
+    }
+
+    // ─── Nav scroll ───────────────────────────────────────────────
     const nav = document.getElementById('mainNav');
     window.addEventListener('scroll', () => {
       nav.classList.toggle('scrolled', window.scrollY > 60);
     });
 
-    // Service item toggle
+    // ─── Hamburger menu ───────────────────────────────────────────
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      mobileMenu.classList.toggle('open');
+    });
+    function closeMobileMenu() {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+    }
+
+    // ─── Service item toggle ──────────────────────────────────────
     document.querySelectorAll('.service-item').forEach(item => {
       item.addEventListener('mouseenter', () => {
         document.querySelectorAll('.service-item').forEach(i => i.classList.remove('active'));
         item.classList.add('active');
       });
+    });
+
+    // ─── FAQ accordion ────────────────────────────────────────────
+    document.querySelectorAll('.faq-item').forEach(item => {
+      item.querySelector('.faq-q').addEventListener('click', () => {
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+      });
+    });
+
+    // ─── Schedule time slot picker ────────────────────────────────
+    function selectOpt(el) {
+      document.querySelectorAll('.schedule-opt').forEach(o => o.classList.remove('sel'));
+      el.classList.add('sel');
+      document.getElementById('schedPreferredTime').value = el.dataset.val;
+    }
+
+    const schedForm = document.getElementById('scheduleForm');
+    if (schedForm) {
+      schedForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const btn = document.getElementById('schedBtn');
+        btn.textContent = 'Sending...'; btn.disabled = true;
+        document.getElementById('schedSuccess').style.display = 'none';
+        document.getElementById('schedError').style.display = 'none';
+        try {
+          const res = await fetch(schedForm.action, {
+            method: 'POST', body: new FormData(schedForm),
+            headers: { 'Accept': 'application/json' }
+          });
+          if (res.ok) {
+            document.getElementById('schedSuccess').style.display = 'block';
+            schedForm.reset();
+            document.querySelectorAll('.schedule-opt').forEach((o,i) => o.classList.toggle('sel', i===0));
+          } else {
+            document.getElementById('schedError').style.display = 'block';
+          }
+        } catch { document.getElementById('schedError').style.display = 'block'; }
+        finally { btn.textContent = 'Request My Free Call →'; btn.disabled = false; }
+      });
+    }
+
+    // ─── Callback toggle ──────────────────────────────────────────
+    function toggleCallback(cb) {
+      document.getElementById('callbackFields').style.display = cb.checked ? 'block' : 'none';
+    }
+
+    // ─── Contact form AJAX ────────────────────────────────────────
+    const form = document.getElementById('contactForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const formSuccess = document.getElementById('formSuccess');
+    const formError = document.getElementById('formError');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      submitBtn.textContent = 'Sending...';
+      submitBtn.disabled = true;
+      formSuccess.style.display = 'none';
+      formError.style.display = 'none';
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST', body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) {
+          formSuccess.style.display = 'block';
+          form.reset();
+        } else {
+          formError.style.display = 'block';
+        }
+      } catch { formError.style.display = 'block'; }
+      finally {
+        submitBtn.textContent = 'Send Enquiry';
+        submitBtn.disabled = false;
+      }
     });
   </script>
 </body>
