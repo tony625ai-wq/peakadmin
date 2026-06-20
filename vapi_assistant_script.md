@@ -5,7 +5,7 @@ _Last updated: 2026-05-19_
 - Assistant ID: `1c519bc4-eeb1-4b16-9c31-724242658cc9`
 - Voice: Shimmer (OpenAI) — UK English female
 - Model: GPT-4o
-- UK number: +44 20 4620 0083 (Telnyx, pending regulatory bundle)
+- UK number: NONE ACTIVE — 020 4620 0083 was NOT provisioned to our account (a stranger answers it). Do not advertise until a real number is attached to Vapi.
 - Webhook: OpenClaw gateway via Cloudflare Tunnel
 
 ---
@@ -38,7 +38,7 @@ Packages:
 - Day Rate: £120/day — one-off projects, no commitment.
 
 Website: peekadmin.co.uk
-Phone: 020 4620 0083
+Phone: (none yet — phone line coming soon)
 Email: tony.625.ai@gmail.com
 
 ---
